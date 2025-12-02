@@ -7,8 +7,6 @@ analyzer:
   exclude:
     - '**/*.g.dart'
     - '**/*.freezed.dart'
-    - '**/*.config.dart'
-    - '**/feature**/*_test.dart'
 
 linter:
   rules:
