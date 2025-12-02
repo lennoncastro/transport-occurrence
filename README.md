@@ -1,16 +1,12 @@
-# transport_occurrence
-
-A new Flutter project.
-
+# Transport occurrences
+---
 ## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+## Decisões técnicas
+O que?
+ - Usar freezed
+Por quê?
+ - Facilita a criação de models, dtos e etc
+ - Contém vários métodos utilitários (copyWith e toString por exemplo)  
+ - Reduz a quantidade de erros na criação de models e dtos
+ - Padroniza a criação desse tipo de classe no projeto
