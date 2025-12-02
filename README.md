@@ -10,3 +10,9 @@ Por quê?
  - Contém vários métodos utilitários (copyWith e toString por exemplo)  
  - Reduz a quantidade de erros na criação de models e dtos
  - Padroniza a criação desse tipo de classe no projeto
+
+O que?
+ - Usar drift
+Por quê?
+ - Facilita a criação e manutenção de banco de dados local
+ - Boa documentação
