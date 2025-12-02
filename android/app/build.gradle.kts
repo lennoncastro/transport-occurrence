@@ -8,7 +8,7 @@ plugins {
 android {
     namespace = "com.example.transport_occurrence"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = project.property("ndk.version") as String
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
