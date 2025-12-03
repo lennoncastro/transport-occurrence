@@ -37,7 +37,34 @@ mixin AppTheme {
         height: 1.5,
         letterSpacing: 0,
       ),
+      labelLarge: TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeight.w500,
+        fontSize: 15,
+        height: 1.6,
+        letterSpacing: 0,
+      ),
     ),
     colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        minimumSize: WidgetStatePropertyAll(Size(double.infinity, 48)),
+        backgroundColor: WidgetStatePropertyAll(AppColors.primary),
+        foregroundColor: WidgetStatePropertyAll(Colors.white),
+        textStyle: WidgetStatePropertyAll(
+          TextStyle(
+            fontFamily: fontFamily,
+            fontWeight: FontWeight.w500,
+            fontSize: 15,
+            height: 1.6,
+            letterSpacing: 0,
+          ),
+        ),
+        shape: WidgetStatePropertyAll(
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        ),
+        elevation: WidgetStatePropertyAll(0),
+      ),
+    ),
   );
 }
