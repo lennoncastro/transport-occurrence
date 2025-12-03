@@ -30,6 +30,13 @@ mixin AppTheme {
         height: 1.0,
         letterSpacing: 0,
       ),
+      titleMedium: TextStyle(
+        fontFamily: fontFamily,
+        fontWeight: FontWeight.w500,
+        fontSize: 16,
+        height: 1.5,
+        letterSpacing: 0,
+      ),
     ),
     colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
   );
