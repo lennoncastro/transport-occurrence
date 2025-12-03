@@ -16,3 +16,13 @@ O que?
 Por quê?
  - Facilita a criação e manutenção de banco de dados local
  - Boa documentação
+
+O que?
+ - Flutter SVG
+Por quê?
+ - Viabiliza a utilização de assets em formato .svg
+
+O que?
+ - Flutter Gen
+Por quê?
+ - Facilita a utilização de assets no projeto
