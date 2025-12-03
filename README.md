@@ -42,3 +42,10 @@ Por quê?
  Por quê?
  - Facilita a criação e recuperação de imagens de assinaturas no projeto.
  
+
+ O que?
+ - flutter modular
+ Por quê?
+ - Permite modularizar aplicações frontend seguindo boas práticas de mercado
+ - Requisito obrigatório
+ 
