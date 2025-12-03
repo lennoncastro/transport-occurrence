@@ -36,3 +36,9 @@ Por quê?
  - mask_text_input_formatter
  Por quê?
  - Facilita a criação e aplicação de máscaras nos componentes de input de texto 
+
+ O que?
+ - signature
+ Por quê?
+ - Facilita a criação e recuperação de imagens de assinaturas no projeto.
+ 
