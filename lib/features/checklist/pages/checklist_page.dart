@@ -1,6 +1,9 @@
+import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:transport_occurrence/core/ds/ds.dart';
+import 'package:transport_occurrence/core/extensions/labels.dart';
 import 'package:transport_occurrence/gen/assets.gen.dart';
 
 class ChecklistPage extends StatelessWidget with AppTheme, AppDimensions {
@@ -19,7 +22,7 @@ class ChecklistPage extends StatelessWidget with AppTheme, AppDimensions {
                 ),
               )
             : null,
-        title: Text('Checklist'),
+        title: Text(context.labels.call().checklistPage.title),
       ),
       body: ListView.separated(
         itemCount: 1,
@@ -69,7 +72,7 @@ class ChecklistPage extends StatelessWidget with AppTheme, AppDimensions {
                       ),
                     ),
                     Text(
-                      'Ocorrência',
+                      context.labels.call().checklistPage.ocurrence,
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         color: Color(0xff515458),
                       ),
