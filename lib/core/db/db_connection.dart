@@ -1,7 +1,7 @@
 import 'package:drift/drift.dart';
 import 'package:drift_flutter/drift_flutter.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:transport_occurrence/data/entities/ocurrence.dart';
+import 'package:transport_occurrence/core/db/tables/ocurrence.dart';
 
 part 'db_connection.g.dart';
 
