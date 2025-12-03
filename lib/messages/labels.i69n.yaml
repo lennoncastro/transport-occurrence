@@ -10,4 +10,14 @@ ocurrencesPage:
     hintText: Placa
     invalidInput: Preencha uma placa válida
     buttonLabel: Avançar
+signaturePage:
+  title: Assinatura
+  form:
+    responsibleLabel: Responsável
+    responsibleHintText: Responsável
+    responsibleInvalidInput: Preencha uma placa válida
+    signaturaLabel: Assinatura
+    signaturaHintText: Assinatura
+    signaturaInvalidInput: Preencha uma assinatura
+    buttonLabel: Finalizar    
 
