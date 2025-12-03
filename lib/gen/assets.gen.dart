@@ -18,6 +18,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/check_circle.svg
   String get checkCircle => 'assets/icons/check_circle.svg';
 
+  /// File path: assets/icons/check_circle_disabled.svg
+  String get checkCircleDisabled => 'assets/icons/check_circle_disabled.svg';
+
   /// File path: assets/icons/erasers_quare.svg
   String get erasersQuare => 'assets/icons/erasers_quare.svg';
 
@@ -43,6 +46,7 @@ class $AssetsIconsGen {
   List<String> get values => [
     cameraAdd,
     checkCircle,
+    checkCircleDisabled,
     erasersQuare,
     packagePlus,
     pen,

@@ -20,4 +20,15 @@ signaturePage:
     signaturaHintText: Assinatura
     signaturaInvalidInput: Preencha uma assinatura
     buttonLabel: Finalizar    
+successPage:
+  title: Concluído
+  label: Registrado
+  description: Ocorrência registrada com sucesso.\nOs seguintes dados foram gravados
+  services: Serviços
+  responsible: Responsável
+  dateTime: Data e hora
+  vehicle: Veículo
+  form:
+    buttonLabel: OK    
+
 
