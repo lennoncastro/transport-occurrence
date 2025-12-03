@@ -1,6 +1,9 @@
+import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
+
 import 'package:flutter/material.dart';
 import 'package:transport_occurrence/core/ds/ds.dart';
-import 'package:transport_occurrence/features/checklist/pages/checklist_page.dart';
+import 'package:transport_occurrence/core/extensions/labels.dart';
+import 'package:transport_occurrence/features/ocurrences/pages/ocurrences_page.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -8,9 +11,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'SADAMOV',
+      title: context.labels.call().app.title,
       theme: AppTheme.theme,
-      home: ChecklistPage(),
+      home: OcurrencesPage(),
     );
   }
 }

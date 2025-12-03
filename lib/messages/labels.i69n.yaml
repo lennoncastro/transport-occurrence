@@ -1,3 +1,7 @@
+app: 
+ title: SADAMOV
 checklistPage:
   title: Checklist
   ocurrence: Ocorrência
+ocurrencesPage:
+  title: Ocorrência
