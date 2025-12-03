@@ -17,6 +17,8 @@ mixin AppDimensions {
 
   static const double spacing32 = 32;
 
+  static const double spacing48 = 48;
+
   static const double radius6 = 6;
 
   static const double radius8 = 8;
