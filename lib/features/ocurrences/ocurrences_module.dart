@@ -3,20 +3,35 @@ import 'package:transport_occurrence/features/ocurrences/pages/manual_signature_
 import 'package:transport_occurrence/features/ocurrences/pages/ocurrence_page.dart';
 import 'package:transport_occurrence/features/ocurrences/pages/signature_page.dart';
 
+mixin OcurrencesModuleRoutes {
+  static final root = '/';
+
+  static final signature = '/signature';
+
+  static final manualSignature = '/manual-signature';
+
+  static final success = '/success';
+}
+
 class OcurrencesModule extends Module {
+  static final String name = '/ocurrence';
+
   @override
   void routes(r) {
-    r.child('/', child: (context) => OcurrencePage());
+    r.child(OcurrencesModuleRoutes.root, child: (context) => OcurrencePage());
     r.child(
-      '/signature',
+      OcurrencesModuleRoutes.signature,
       child: (context) => SignaturePage(),
       children: [
         ChildRoute(
-          '/manual-signature',
+          OcurrencesModuleRoutes.manualSignature,
           child: (context) => const ManualSignaturePage(),
         ),
       ],
     );
-    r.child('/success', child: (context) => OcurrencePage());
+    r.child(
+      OcurrencesModuleRoutes.success,
+      child: (context) => OcurrencePage(),
+    );
   }
 }
