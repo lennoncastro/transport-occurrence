@@ -30,5 +30,9 @@ successPage:
   vehicle: Veículo
   form:
     buttonLabel: OK    
+manualSignaturePage:
+  title: Assinatura
+  clear: Limpar
+  buttonLabel: Confirmar  
 
 
