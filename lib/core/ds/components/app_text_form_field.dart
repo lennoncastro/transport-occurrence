@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:transport_occurrence/core/ds/dimensions.dart';
 
 class AppTextFormField extends StatelessWidget {
@@ -9,6 +10,7 @@ class AppTextFormField extends StatelessWidget {
     this.controller,
     this.minLines,
     this.maxLines,
+    this.inputFormatters,
     super.key,
   });
 
@@ -23,6 +25,8 @@ class AppTextFormField extends StatelessWidget {
   final int? minLines;
 
   final int? maxLines;
+
+  final List<TextInputFormatter>? inputFormatters;
 
   @override
   Widget build(BuildContext context) {
@@ -67,6 +71,7 @@ class AppTextFormField extends StatelessWidget {
               hintText: hintText,
             ),
             validator: validator,
+            inputFormatters: inputFormatters,
           ),
         ],
       ),
