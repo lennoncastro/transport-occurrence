@@ -26,3 +26,8 @@ O que?
  - Flutter Gen
 Por quê?
  - Facilita a utilização de assets no projeto
+
+ O que?
+ - i69n
+Por quê?
+ - Facilita a geração de strings no projeto, facilitando a internacionalização e localização do mesmo. 
