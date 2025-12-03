@@ -31,3 +31,8 @@ Por quê?
  - i69n
 Por quê?
  - Facilita a geração de strings no projeto, facilitando a internacionalização e localização do mesmo. 
+
+ O que?
+ - mask_text_input_formatter
+ Por quê?
+ - Facilita a criação e aplicação de máscaras nos componentes de input de texto 
