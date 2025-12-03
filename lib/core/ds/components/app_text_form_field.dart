@@ -39,8 +39,8 @@ class AppTextFormField extends StatelessWidget {
           ),
           TextFormField(
             controller: controller,
-            minLines: minLines,
-            maxLines: maxLines,
+            minLines: minLines ?? 1,
+            maxLines: maxLines ?? 1,
             decoration: InputDecoration(
               contentPadding: EdgeInsets.symmetric(
                 horizontal: AppDimensions.spacing20,
