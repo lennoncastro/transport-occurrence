@@ -3,9 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:transport_occurrence/core/ds/colors.dart';
 
 mixin AppTheme {
+  static String fontFamily = 'Inter';
+
   static ThemeData theme = ThemeData(
     scaffoldBackgroundColor: AppColors.background,
-    fontFamily: 'Inter',
+    fontFamily: fontFamily,
     appBarTheme: const AppBarTheme(
       centerTitle: true,
       backgroundColor: AppColors.primary,
@@ -20,9 +22,9 @@ mixin AppTheme {
         color: AppColors.white,
       ),
     ),
-    textTheme: const TextTheme(
+    textTheme: TextTheme(
       bodyMedium: TextStyle(
-        fontFamily: 'Inter',
+        fontFamily: fontFamily,
         fontWeight: FontWeight.w400,
         fontSize: 16,
         height: 1.0,
