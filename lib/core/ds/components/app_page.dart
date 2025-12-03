@@ -23,7 +23,13 @@ class AppPage extends StatelessWidget with AppTheme, AppDimensions {
     return Scaffold(
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,
       appBar: AppBar(
-        leading: Navigator.canPop(context) ? AppBarLeading() : null,
+        automaticallyImplyLeading: true,
+        leading: Navigator.canPop(context)
+            ? InkWell(
+                onTap: () => Navigator.maybePop(context),
+                child: AppBarLeading(),
+              )
+            : null,
         title: Text(title),
       ),
       body: body,
