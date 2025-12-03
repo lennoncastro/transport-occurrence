@@ -4,7 +4,7 @@ import 'package:transport_occurrence/core/ds/ds.dart';
 import 'package:transport_occurrence/core/extensions/labels.dart';
 import 'package:transport_occurrence/gen/assets.gen.dart';
 
-class SuccessPage extends StatelessWidget with AppTheme {
+class SuccessPage extends StatelessWidget {
   SuccessPage({super.key});
 
   final controller = TextEditingController();

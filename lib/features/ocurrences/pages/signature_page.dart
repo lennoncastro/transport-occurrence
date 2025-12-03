@@ -4,7 +4,7 @@ import 'package:transport_occurrence/core/ds/ds.dart';
 import 'package:transport_occurrence/core/extensions/labels.dart';
 import 'package:transport_occurrence/gen/assets.gen.dart';
 
-class SignaturePage extends StatelessWidget with AppTheme {
+class SignaturePage extends StatelessWidget {
   SignaturePage({super.key});
 
   final controller = TextEditingController();

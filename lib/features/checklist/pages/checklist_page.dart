@@ -5,7 +5,7 @@ import 'package:transport_occurrence/core/extensions/labels.dart';
 import 'package:transport_occurrence/features/checklist/components/checklist_card.dart';
 import 'package:transport_occurrence/gen/assets.gen.dart';
 
-class ChecklistPage extends StatelessWidget with AppTheme, AppDimensions {
+class ChecklistPage extends StatelessWidget {
   const ChecklistPage({super.key});
 
   @override
