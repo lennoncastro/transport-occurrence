@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:transport_occurrence/core/ds/ds.dart';
 import 'package:transport_occurrence/core/extensions/labels.dart';
-import 'package:transport_occurrence/features/signature/pages/signature_page.dart';
+import 'package:transport_occurrence/features/ocurrences/pages/signature_page.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
