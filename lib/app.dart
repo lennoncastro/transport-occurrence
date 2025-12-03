@@ -1,5 +1,3 @@
-import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
-
 import 'package:flutter/material.dart';
 import 'package:transport_occurrence/core/ds/ds.dart';
 import 'package:transport_occurrence/core/extensions/labels.dart';
@@ -11,7 +9,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: context.labels.call().app.title,
+      title: context.labels.app.title,
       theme: AppTheme.theme,
       home: OcurrencesPage(),
     );

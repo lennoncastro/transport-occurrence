@@ -1,5 +1,3 @@
-import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:transport_occurrence/core/ds/components/app_bar_leading.dart';
@@ -16,7 +14,7 @@ class ChecklistPage extends StatelessWidget with AppTheme, AppDimensions {
     return Scaffold(
       appBar: AppBar(
         leading: Navigator.canPop(context) ? AppBarLeading() : null,
-        title: Text(context.labels.call().checklistPage.title),
+        title: Text(context.labels.checklistPage.title),
       ),
       body: ListView.separated(
         itemCount: 1,
@@ -30,7 +28,7 @@ class ChecklistPage extends StatelessWidget with AppTheme, AppDimensions {
               width: AppDimensions.icon32,
               height: AppDimensions.icon32,
             ),
-            label: context.labels.call().checklistPage.ocurrence,
+            label: context.labels.checklistPage.ocurrence,
           );
         },
       ),
