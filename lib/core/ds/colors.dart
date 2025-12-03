@@ -5,5 +5,5 @@ mixin AppColors {
 
   static const white = Colors.white;
 
-  static const background = Color(0xffF5F6FA);
+  static const background = Color(0xffFEFEFE);
 }
