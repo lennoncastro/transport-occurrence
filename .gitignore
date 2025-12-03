@@ -48,3 +48,4 @@ app.*.map.json
 # Generated files by Flutter
 *.g.dart
 *.freezed.dart
+*.i69n.dart
