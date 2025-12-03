@@ -9,4 +9,5 @@ ocurrencesPage:
     label: Placa Veículo
     hintText: Placa
     invalidInput: Preencha uma placa válida
+    buttonLabel: Avançar
 
