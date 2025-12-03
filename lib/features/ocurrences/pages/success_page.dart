@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:transport_occurrence/core/ds/ds.dart';
 import 'package:transport_occurrence/core/extensions/labels.dart';
-import 'package:transport_occurrence/features/ocurrences/components/ocurrence_photo_card.dart';
 import 'package:transport_occurrence/gen/assets.gen.dart';
 
 class SuccessPage extends StatelessWidget with AppTheme {
