@@ -5,3 +5,8 @@ checklistPage:
   ocurrence: Ocorrência
 ocurrencesPage:
   title: Ocorrência
+  form:
+    label: Placa Veículo
+    hintText: Placa
+    invalidInput: Preencha uma placa válida
+
