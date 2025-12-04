@@ -49,3 +49,4 @@ app.*.map.json
 *.g.dart
 *.freezed.dart
 *.i69n.dart
+*.gen.dart
