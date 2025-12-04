@@ -27,6 +27,7 @@ successPage:
   services: Serviços
   responsible: Responsável
   dateTime: Data e hora
+  dateTimeAt: às
   vehicle: Veículo
   form:
     buttonLabel: OK    

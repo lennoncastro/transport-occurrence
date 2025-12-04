@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:transport_occurrence/core/ds/ds.dart';
 import 'package:transport_occurrence/core/extensions/labels.dart';
+import 'package:transport_occurrence/features/ocurrences/stores/success_store.dart';
+import 'package:transport_occurrence/features/ocurrences/viewmodels/success_viewmodel.dart';
 import 'package:transport_occurrence/gen/assets.gen.dart';
 
 class SuccessPage extends StatelessWidget {
   SuccessPage({super.key});
 
-  final controller = TextEditingController();
+  final SuccessViewModel _viewModel = Modular.get<SuccessViewModel>();
+
+  final SuccessStore _successStore = Modular.get<SuccessStore>();
 
   @override
   Widget build(BuildContext context) {
@@ -88,9 +94,11 @@ class SuccessPage extends StatelessWidget {
                           top: 2,
                           bottom: 2,
                         ),
-                        child: Text(
-                          labels.services,
-                          style: Theme.of(context).textTheme.labelLarge,
+                        child: Observer(
+                          builder: (_) => Text(
+                            labels.services,
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
                         ),
                       ),
                     ],
@@ -110,9 +118,11 @@ class SuccessPage extends StatelessWidget {
                           top: 2,
                           bottom: 2,
                         ),
-                        child: Text(
-                          'Filipe Benício da Conceição',
-                          style: Theme.of(context).textTheme.labelLarge,
+                        child: Observer(
+                          builder: (_) => Text(
+                            _successStore.responsible,
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
                         ),
                       ),
                     ],
@@ -132,21 +142,23 @@ class SuccessPage extends StatelessWidget {
                           top: 2,
                           bottom: 2,
                         ),
-                        child: RichText(
-                          text: TextSpan(
-                            text: '13/09/2024 ',
-                            style: Theme.of(context).textTheme.labelLarge,
-                            children: [
-                              TextSpan(
-                                text: 'às ',
-                                style: Theme.of(context).textTheme.labelLarge!
-                                    .copyWith(fontWeight: FontWeight.w400),
-                              ),
-                              TextSpan(
-                                text: '13/09/2024',
-                                style: Theme.of(context).textTheme.labelLarge,
-                              ),
-                            ],
+                        child: Observer(
+                          builder: (_) => RichText(
+                            text: TextSpan(
+                              text: '${_successStore.formattedDate} ',
+                              style: Theme.of(context).textTheme.labelLarge,
+                              children: [
+                                TextSpan(
+                                  text: '${labels.dateTimeAt} ',
+                                  style: Theme.of(context).textTheme.labelLarge!
+                                      .copyWith(fontWeight: FontWeight.w400),
+                                ),
+                                TextSpan(
+                                  text: _successStore.formattedTime,
+                                  style: Theme.of(context).textTheme.labelLarge,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -167,9 +179,11 @@ class SuccessPage extends StatelessWidget {
                           top: 2,
                           bottom: 2,
                         ),
-                        child: Text(
-                          'AAA-1A23',
-                          style: Theme.of(context).textTheme.labelLarge,
+                        child: Observer(
+                          builder: (_) => Text(
+                            _successStore.plate,
+                            style: Theme.of(context).textTheme.labelLarge,
+                          ),
                         ),
                       ),
                     ],
@@ -182,7 +196,10 @@ class SuccessPage extends StatelessWidget {
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(AppDimensions.spacing24),
-        child: AppElevatedButton(label: labels.form.buttonLabel),
+        child: AppElevatedButton(
+          onPressed: _viewModel.backToHome,
+          label: labels.form.buttonLabel,
+        ),
       ),
     );
   }

@@ -10,9 +10,11 @@ import 'package:transport_occurrence/features/ocurrences/stores/manual_signature
 import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_plate_store.dart';
 import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_store.dart';
 import 'package:transport_occurrence/features/ocurrences/stores/signature_store.dart';
+import 'package:transport_occurrence/features/ocurrences/stores/success_store.dart';
 import 'package:transport_occurrence/features/ocurrences/viewmodels/manual_signature_viewmodel.dart';
 import 'package:transport_occurrence/features/ocurrences/viewmodels/ocurrence_plate_viewmodel.dart';
 import 'package:transport_occurrence/features/ocurrences/viewmodels/signature_viewmodel.dart';
+import 'package:transport_occurrence/features/ocurrences/viewmodels/success_viewmodel.dart';
 
 mixin OcurrencesModuleRoutes {
   static final root = '/';
@@ -39,6 +41,9 @@ class OcurrencesModule extends Module {
     i.addLazySingleton<ManualSignatureStore>(
       () => ManualSignatureStore(i.get<OcurrenceStore>()),
     );
+    i.addLazySingleton<SuccessStore>(
+      () => SuccessStore(i.get<OcurrenceStore>()),
+    );
     i.add<OcurrencePlateViewModel>(
       () => OcurrencePlateViewModel(
         i.get<OcurrencePlateStore>(),
@@ -61,6 +66,9 @@ class OcurrencesModule extends Module {
         Modular.get<NavigationService>(),
         Modular.get<SignatureProvider>(),
       ),
+    );
+    i.add<SuccessViewModel>(
+      () => SuccessViewModel(Modular.get<NavigationService>()),
     );
     super.binds(i);
   }
