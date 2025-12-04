@@ -32,9 +32,7 @@ class NavigationServiceImpl implements NavigationService {
   @override
   void goToManualSignature() {
     Modular.to.pushNamed(
-      OcurrencesModule.name +
-          OcurrencesModuleRoutes.signature +
-          OcurrencesModuleRoutes.manualSignature,
+      OcurrencesModule.name + OcurrencesModuleRoutes.manualSignature,
     );
   }
 

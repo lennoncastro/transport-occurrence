@@ -6,7 +6,9 @@ import 'package:transport_occurrence/features/ocurrences/pages/ocurrence_plate_p
 import 'package:transport_occurrence/features/ocurrences/pages/signature_page.dart';
 import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_plate_store.dart';
 import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_store.dart';
+import 'package:transport_occurrence/features/ocurrences/stores/signature_store.dart';
 import 'package:transport_occurrence/features/ocurrences/viewmodels/ocurrence_plate_viewmodel.dart';
+import 'package:transport_occurrence/features/ocurrences/viewmodels/signature_viewmodel.dart';
 
 mixin OcurrencesModuleRoutes {
   static final root = '/';
@@ -25,12 +27,20 @@ class OcurrencesModule extends Module {
   void binds(Injector i) {
     i.addLazySingleton<OcurrenceStore>(() => OcurrenceStore());
     i.addLazySingleton<OcurrencePlateStore>(() => OcurrencePlateStore());
+    i.addLazySingleton<SignatureStore>(() => SignatureStore());
     i.add<OcurrencePlateViewModel>(
       () => OcurrencePlateViewModel(
         i.get<OcurrencePlateStore>(),
         i.get<OcurrenceStore>(),
         Modular.get<NavigationService>(),
         Modular.get<CameraProvider>(),
+      ),
+    );
+    i.add<SignatureViewModel>(
+      () => SignatureViewModel(
+        i.get<OcurrenceStore>(),
+        i.get<SignatureStore>(),
+        Modular.get<NavigationService>(),
       ),
     );
     super.binds(i);
@@ -45,12 +55,10 @@ class OcurrencesModule extends Module {
     r.child(
       OcurrencesModuleRoutes.signature,
       child: (context) => SignaturePage(),
-      children: [
-        ChildRoute(
-          OcurrencesModuleRoutes.manualSignature,
-          child: (context) => const ManualSignaturePage(),
-        ),
-      ],
+    );
+    r.child(
+      OcurrencesModuleRoutes.manualSignature,
+      child: (context) => const ManualSignaturePage(),
     );
     r.child(
       OcurrencesModuleRoutes.success,
