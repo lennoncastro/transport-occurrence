@@ -5,6 +5,7 @@ import 'package:transport_occurrence/features/ocurrences/pages/manual_signature_
 import 'package:transport_occurrence/features/ocurrences/pages/ocurrence_plate_page.dart';
 import 'package:transport_occurrence/features/ocurrences/pages/signature_page.dart';
 import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_plate_store.dart';
+import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_store.dart';
 import 'package:transport_occurrence/features/ocurrences/viewmodels/ocurrence_plate_viewmodel.dart';
 
 mixin OcurrencesModuleRoutes {
@@ -22,10 +23,12 @@ class OcurrencesModule extends Module {
 
   @override
   void binds(Injector i) {
+    i.addLazySingleton<OcurrenceStore>(() => OcurrenceStore());
     i.addLazySingleton<OcurrencePlateStore>(() => OcurrencePlateStore());
     i.add<OcurrencePlateViewModel>(
       () => OcurrencePlateViewModel(
         i.get<OcurrencePlateStore>(),
+        i.get<OcurrenceStore>(),
         Modular.get<NavigationService>(),
         Modular.get<CameraProvider>(),
       ),

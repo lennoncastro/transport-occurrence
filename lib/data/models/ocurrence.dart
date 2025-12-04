@@ -39,5 +39,20 @@ abstract class Ocurrence with _$Ocurrence {
     );
   }
 
+  factory Ocurrence.empty() {
+    final now = DateTime.now();
+    return Ocurrence(
+      id: _uuid.v4(),
+      plate: '',
+      photosPath: [],
+      responsible: '',
+      signature: '',
+      createdAt: now,
+      updatedAt: now,
+      isAlreadyProcessed: false,
+      isActived: true,
+    );
+  }
+
   static final Uuid _uuid = Uuid();
 }
