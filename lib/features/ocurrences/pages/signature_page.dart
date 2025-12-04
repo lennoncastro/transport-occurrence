@@ -68,6 +68,7 @@ class _SignaturePageState extends State<SignaturePage> {
                     children: [
                       if (_signatureStore.signaturePath.isNotEmpty)
                         Positioned.fill(
+                          top: AppDimensions.spacing28,
                           child: Image.file(
                             File(_signatureStore.signaturePath),
                           ),
