@@ -112,7 +112,7 @@ O projeto segue uma arquitetura modular baseada em **MVVM** (Model-View-ViewMode
 - Dependências são injetadas automaticamente via construtor
 
 ### Relação entre módulos
-A hierarquia de módulos segue uma estrutura em camadas, onde módulos superiores dependem de módulos inferiores:
+A hierarquia de módulos segue uma estrutura em camadas, onde módulos superiores dependem de módulos inferiores. A ideia é evitar dependência circular e permitir que qualquer feature tenha acesso aos dados e recursos necessários para funcionar.
 
 ```
 AppModule (raiz)
@@ -175,6 +175,27 @@ DataModule
 - **CoreModule** → acessa `DbModule` para operações de banco de dados
 - Todos os módulos podem acessar serviços do `CoreModule` diretamente
 
+## Padrões e convenções
+---
+### Padrões de código
+O projeto segue as regras do `flutter_lints` com configurações adicionais no `analysis_options.yaml`:
+
+- **Sempre declarar tipos de retorno**: `always_declare_return_types: true`
+- **Usar imports de pacote**: `always_use_package_imports: true`
+- **Ordenação de diretivas**: `directives_ordering: true`
+- **Nomenclatura de pacotes**: `package_names: true` e `package_prefixed_library_names: true`
+- **Remoção de código desnecessário**: várias regras para evitar código redundante
+
+### Convenções de nomenclatura
+- **Módulos**: `*_module.dart` (ex: `app_module.dart`, `core_module.dart`)
+- **Stores**: `*_store.dart` (ex: `ocurrence_store.dart`)
+- **ViewModels**: `*_viewmodel.dart` (ex: `ocurrence_plate_viewmodel.dart`)
+- **Pages**: `*_page.dart` (ex: `checklist_page.dart`)
+- **Providers**: `*_provider.dart` (ex: `camera_provider.dart`)
+- **Services**: `*_service.dart` (ex: `ocurrence_service.dart`)
+- **Repositories**: `*_repository.dart` (ex: `ocurrence_repository.dart`)
+
+
 ## Decisões técnicas
 ---
 O que?
@@ -184,6 +205,10 @@ Por quê?
  - Contém vários métodos utilitários (copyWith e toString por exemplo)  
  - Reduz a quantidade de erros na criação de models e dtos
  - Padroniza a criação desse tipo de classe no projeto
+Trade-offs:
+ - Requer geração de código (build_runner), aumentando tempo de build
+ - Curva de aprendizado inicial para desenvolvedores não familiarizados
+ - Alternativas consideradas: classes manuais (mais verbosas) ou json_serializable (menos recursos)
 
 O que?
  - Usar drift
@@ -192,6 +217,9 @@ Por quê?
  - Boa documentação
  - Type-safe queries
  - Migrations automáticas
+Trade-offs:
+ - Requer geração de código, similar ao freezed
+ - Alternativas consideradas: sqflite (mais manual, menos type-safe) ou hive (mais simples mas menos recursos para queries complexas)
 
 O que?
  - Flutter SVG
@@ -231,12 +259,18 @@ Por quê?
  - Requisito obrigatório
  - Injeção de dependências integrada
  - Gerenciamento de rotas modular
+Trade-offs:
+ - Adiciona complexidade inicial na configuração dos módulos
+ - Alternativas consideradas: get_it (apenas DI, sem rotas) ou provider (mais simples mas menos recursos para modularização)
 
 O que?
  - flutter mobx
 Por quê?
  - Permite criar store para gerenciar estado das páginas e componentes da aplicação
  - Requisito obrigatório
+Trade-offs:
+ - Requer geração de código para observables
+ - Alternativas consideradas: Provider (mais simples mas mais boilerplate), Riverpod (mais moderno mas não era requisito), Bloc (mais verboso)
 
 O que?
  - image_picker
@@ -251,6 +285,9 @@ Por quê?
  - Permite a execução de tarefas em background
  - Cuida de boa parte da comunicação com o nativo
  - Viabiliza a sincronização automática de ocorrências
+Trade-offs:
+ - Limitações de execução em background variam por plataforma (iOS mais restritivo)
+ - Alternativas consideradas: flutter_background_service (mais controle mas mais complexo) ou implementação nativa manual (mais trabalho)
 
 O que?
  - mocktail
