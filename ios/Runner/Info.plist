@@ -53,5 +53,7 @@
 	<array>
 		<string>com.example.transportOccurrence.processing_task</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Permissão para usar a câmera.</string>
 </dict>
 </plist>
