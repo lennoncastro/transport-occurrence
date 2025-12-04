@@ -2,6 +2,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:transport_occurrence/core/camera/camera_provider.dart';
 import 'package:transport_occurrence/core/navigation/navigator_service.dart';
 import 'package:transport_occurrence/core/signature/signature_provider.dart';
+import 'package:transport_occurrence/data/data_module.dart';
+import 'package:transport_occurrence/data/repositories/ocurrence_repository.dart';
 import 'package:transport_occurrence/features/ocurrences/pages/manual_signature_page.dart';
 import 'package:transport_occurrence/features/ocurrences/pages/ocurrence_plate_page.dart';
 import 'package:transport_occurrence/features/ocurrences/pages/signature_page.dart';
@@ -57,6 +59,7 @@ class OcurrencesModule extends Module {
         i.get<OcurrenceStore>(),
         i.get<SignatureStore>(),
         Modular.get<NavigationService>(),
+        Modular.get<OcurrenceRepository>(),
       ),
     );
     i.add<ManualSignatureViewModel>(
@@ -89,4 +92,7 @@ class OcurrencesModule extends Module {
     );
     r.child(OcurrencesModuleRoutes.success, child: (context) => SuccessPage());
   }
+
+  @override
+  List<Module> get imports => [DataModule()];
 }
