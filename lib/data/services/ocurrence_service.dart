@@ -13,7 +13,7 @@ class OcurrenceServiceImpl implements OcurrenceService {
   @override
   Future<void> sendOcurrence(Ocurrence ocurrence) async {
     try {
-      final body = ocurrence.toJson();
+      final body = await ocurrence.toHttpJson();
       await _httpClient.post('/ocurrences', body);
     } catch (e) {
       throw OcurrenceException.syncFailed(
