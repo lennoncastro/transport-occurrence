@@ -46,6 +46,7 @@ class AppTextFormField extends StatelessWidget {
             ).textTheme.titleMedium?.copyWith(color: AppColors.textPrimary),
           ),
           TextFormField(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             controller: controller,
             minLines: minLines ?? 1,
             maxLines: maxLines ?? 1,
