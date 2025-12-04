@@ -49,9 +49,14 @@ Por quê?
  - Permite modularizar aplicações frontend seguindo boas práticas de mercado
  - Requisito obrigatório
  
-  O que?
+ O que?
  - flutter mobx
  Por quê?
  - Permite criar store para gerenciar estado das páginas e componentes da aplicação
  - Requisito obrigatório
  
+ O que?
+ - image_picker
+ Por quê?
+ - Permite acessar a camera do device através de uma api simples 
+ - Requisito obrigatório
