@@ -11,6 +11,7 @@ class AppTextFormField extends StatelessWidget {
     this.minLines,
     this.maxLines,
     this.inputFormatters,
+    this.readOnly = false,
     super.key,
   });
 
@@ -27,6 +28,8 @@ class AppTextFormField extends StatelessWidget {
   final int? maxLines;
 
   final List<TextInputFormatter>? inputFormatters;
+
+  final bool readOnly;
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +48,7 @@ class AppTextFormField extends StatelessWidget {
             controller: controller,
             minLines: minLines ?? 1,
             maxLines: maxLines ?? 1,
+            readOnly: readOnly,
             decoration: InputDecoration(
               contentPadding: EdgeInsets.symmetric(
                 horizontal: AppDimensions.spacing20,
