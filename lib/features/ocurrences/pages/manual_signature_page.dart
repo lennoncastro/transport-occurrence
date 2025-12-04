@@ -27,8 +27,8 @@ class _ManualSignaturePageState extends State<ManualSignaturePage> {
 
   final SignatureController _signatureController = SignatureController(
     penStrokeWidth: 5,
-    penColor: Colors.black,
-    exportBackgroundColor: Colors.white,
+    penColor: AppColors.black,
+    exportBackgroundColor: AppColors.white,
   );
 
   Timer? _signatureTimerDebouncer;
@@ -84,7 +84,7 @@ class _ManualSignaturePageState extends State<ManualSignaturePage> {
                       labels.clear,
                       style: Theme.of(
                         context,
-                      ).textTheme.bodySmall?.copyWith(color: Color(0xFF000000)),
+                      ).textTheme.bodySmall?.copyWith(color: AppColors.black),
                     ),
                   ],
                 ),
@@ -98,7 +98,7 @@ class _ManualSignaturePageState extends State<ManualSignaturePage> {
                   decoration: BoxDecoration(
                     border: Border(
                       bottom: BorderSide(
-                        color: Color(0xFF000000),
+                        color: AppColors.black,
                         width: AppDimensions.spacing2,
                       ),
                     ),
