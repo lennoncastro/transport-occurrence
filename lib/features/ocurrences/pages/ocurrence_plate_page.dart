@@ -61,6 +61,7 @@ class _OcurrencePlatePageState extends State<OcurrencePlatePage> {
           spacing: AppDimensions.spacing16,
           children: [
             AppTextFormField(
+              key: Key(labels.form.label.toLowerCase()),
               label: labels.form.label,
               hintText: labels.form.hintText,
               inputFormatters: [_plateUppercaseFormatter, _plateMaskFormatter],
