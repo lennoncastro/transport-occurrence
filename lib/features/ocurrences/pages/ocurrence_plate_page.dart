@@ -61,21 +61,12 @@ class _OcurrencePlatePageState extends State<OcurrencePlatePage> {
               controller: _plateController,
             ),
             Container(
-              constraints: BoxConstraints(maxHeight: 96),
-              child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 96,
-                  mainAxisExtent: 96,
+              alignment: Alignment.centerLeft,
+              child: Observer(
+                builder: (_) => OcurrencePhotoCard(
+                  onTap: _viewModel.takePhoto,
+                  photoPath: _store.photoPath,
                 ),
-                itemCount: 1,
-                itemBuilder: (context, index) {
-                  return Observer(
-                    builder: (_) => OcurrencePhotoCard(
-                      onTap: _viewModel.takePhoto,
-                      photoPath: _store.photoPath,
-                    ),
-                  );
-                },
               ),
             ),
           ],

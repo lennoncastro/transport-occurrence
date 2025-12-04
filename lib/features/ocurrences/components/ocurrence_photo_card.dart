@@ -17,12 +17,13 @@ class OcurrencePhotoCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        constraints: BoxConstraints(maxWidth: 96),
+        width: 96,
+        height: 96,
         decoration: BoxDecoration(
           image: photoPath != null && photoPath!.isNotEmpty
               ? DecorationImage(
                   image: FileImage(File(photoPath!)),
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
                 )
               : null,
           color: photoPath != null && photoPath!.isNotEmpty
