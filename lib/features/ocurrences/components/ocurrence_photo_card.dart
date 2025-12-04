@@ -19,17 +19,19 @@ class OcurrencePhotoCard extends StatelessWidget {
       child: Container(
         constraints: BoxConstraints(maxWidth: 96),
         decoration: BoxDecoration(
-          image: photoPath != null
+          image: photoPath != null && photoPath!.isNotEmpty
               ? DecorationImage(
                   image: FileImage(File(photoPath!)),
                   fit: BoxFit.cover,
                 )
               : null,
-          color: photoPath != null ? Colors.transparent : Color(0XFFF6F6FB),
+          color: photoPath != null && photoPath!.isNotEmpty
+              ? Colors.transparent
+              : Color(0XFFF6F6FB),
           borderRadius: BorderRadius.circular(AppDimensions.radius8),
         ),
         padding: EdgeInsets.all(AppDimensions.spacing32),
-        child: photoPath != null
+        child: photoPath != null && photoPath!.isNotEmpty
             ? const SizedBox.shrink()
             : SvgPicture.asset(Assets.icons.cameraAdd, width: 32, height: 32),
       ),
