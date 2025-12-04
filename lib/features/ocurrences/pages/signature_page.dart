@@ -101,7 +101,9 @@ class _SignaturePageState extends State<SignaturePage> {
             icon: Padding(
               padding: EdgeInsets.only(top: AppDimensions.spacing2),
               child: SvgPicture.asset(
-                Assets.icons.checkCircle,
+                _signatureStore.isButtonEnabled
+                    ? Assets.icons.checkCircle
+                    : Assets.icons.checkCircleDisabled,
                 width: AppDimensions.icon20,
                 height: AppDimensions.icon20,
               ),
