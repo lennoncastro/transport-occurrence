@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:transport_occurrence/core/core_module.dart';
+import 'package:transport_occurrence/data/data.dart';
 import 'package:transport_occurrence/data/data_module.dart';
 import 'package:transport_occurrence/data/repositories/ocurrence_repository.dart';
 import 'package:workmanager/workmanager.dart';
@@ -7,9 +9,12 @@ import 'package:workmanager/workmanager.dart';
 @pragma('vm:entry-point')
 void callbackDispatcher() {
   debugPrint('callbackDispatcher: callbackDispatcher started');
-  Modular.init(DataModule());
+  Modular
+    ..init(DataModule())
+    ..init(CoreModule());
   final OcurrenceRepository ocurrenceRepository =
       Modular.get<OcurrenceRepository>();
+  final OcurrenceService ocurrenceService = Modular.get<OcurrenceService>();
   Workmanager().executeTask((task, inputData) async {
     debugPrint(
       'callbackDispatcher: executeTask - task: $task, inputData: $inputData',
@@ -17,10 +22,11 @@ void callbackDispatcher() {
     try {
       switch (task) {
         case 'send-ocurrences':
-          await _handleSendOcurrences(task, ocurrenceRepository);
-          return _onSuccess(task);
-        case 'delete-sent-ocurrences':
-          await _handleDeleteSentOcurrences(task, ocurrenceRepository);
+          await _handleSendOcurrences(
+            task,
+            ocurrenceRepository,
+            ocurrenceService,
+          );
           return _onSuccess(task);
         default:
           debugPrint('callbackDispatcher: unknown task - task: $task');
@@ -35,6 +41,7 @@ void callbackDispatcher() {
 Future<void> _handleSendOcurrences(
   String task,
   OcurrenceRepository ocurrenceRepository,
+  OcurrenceService ocurrenceService,
 ) async {
   debugPrint('callbackDispatcher: [$task] Iniciando processamento');
   final ocurrences = await ocurrenceRepository.findNotProcessed();
@@ -42,21 +49,7 @@ Future<void> _handleSendOcurrences(
     'callbackDispatcher: [$task] Occurrences found: ${ocurrences.length}',
   );
   for (final ocurrence in ocurrences) {
-    await ocurrenceRepository.markAsProcessed(ocurrence.id);
-  }
-  debugPrint('callbackDispatcher: [$task] Processing completed');
-}
-
-Future<void> _handleDeleteSentOcurrences(
-  String task,
-  OcurrenceRepository ocurrenceRepository,
-) async {
-  debugPrint('callbackDispatcher: [$task] Starting processing');
-  final ocurrences = await ocurrenceRepository.findProcessed();
-  debugPrint(
-    'callbackDispatcher: [$task] Occurrences found: ${ocurrences.length}',
-  );
-  for (final ocurrence in ocurrences) {
+    await ocurrenceService.sendOcurrence(ocurrence);
     await ocurrenceRepository.markAsProcessed(ocurrence.id);
   }
   debugPrint('callbackDispatcher: [$task] Processing completed');

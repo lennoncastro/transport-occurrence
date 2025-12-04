@@ -33,4 +33,10 @@ sealed class OcurrenceException with _$OcurrenceException implements Exception {
     required String message,
     Object? originalException,
   }) = OcurrenceQueryException;
+
+  const factory OcurrenceException.syncFailed({
+    required String message,
+    String? ocurrenceId,
+    Object? originalException,
+  }) = OcurrenceSyncException;
 }

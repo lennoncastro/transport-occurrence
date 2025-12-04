@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uuid/uuid.dart';
 
 part 'ocurrence.freezed.dart';
+part 'ocurrence.g.dart';
 
 @freezed
 abstract class Ocurrence with _$Ocurrence {
@@ -13,11 +14,14 @@ abstract class Ocurrence with _$Ocurrence {
     required List<String> photosPath,
     required String responsible,
     required String signature,
-    required DateTime createdAt,
-    required DateTime updatedAt,
-    required bool isAlreadyProcessed,
-    required bool isActived,
+    @JsonKey(name: 'createdAt') required DateTime createdAt,
+    @JsonKey(name: 'updatedAt') required DateTime updatedAt,
+    @JsonKey(name: 'isAlreadyProcessed') required bool isAlreadyProcessed,
+    @JsonKey(name: 'isActived') required bool isActived,
   }) = _Ocurrence;
+
+  factory Ocurrence.fromJson(Map<String, dynamic> json) =>
+      _$OcurrenceFromJson(json);
 
   factory Ocurrence.create({
     required String plate,
