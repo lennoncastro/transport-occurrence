@@ -29,7 +29,7 @@ mixin AppTheme {
         fontSize: 16,
         height: 1.0,
         letterSpacing: 0,
-        color: Color(0xff515458),
+        color: AppColors.textPrimary,
       ),
       bodySmall: TextStyle(
         fontFamily: fontFamily,
@@ -37,7 +37,7 @@ mixin AppTheme {
         fontSize: 14,
         height: 1.71,
         letterSpacing: 0,
-        color: Color(0xff515458),
+        color: AppColors.textPrimary,
       ),
       titleMedium: TextStyle(
         fontFamily: fontFamily,
@@ -45,7 +45,7 @@ mixin AppTheme {
         fontSize: 16,
         height: 1.5,
         letterSpacing: 0,
-        color: Color(0xff515458),
+        color: AppColors.textPrimary,
       ),
       labelLarge: TextStyle(
         fontFamily: fontFamily,
@@ -53,7 +53,7 @@ mixin AppTheme {
         fontSize: 14,
         height: 1.6,
         letterSpacing: 0,
-        color: Color(0xff515458),
+        color: AppColors.textPrimary,
       ),
       titleLarge: TextStyle(
         fontFamily: fontFamily,
@@ -61,7 +61,7 @@ mixin AppTheme {
         fontSize: 22,
         height: 1.0,
         letterSpacing: 0,
-        color: Color(0xff515458),
+        color: AppColors.textPrimary,
       ),
     ),
     colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
@@ -70,15 +70,15 @@ mixin AppTheme {
         minimumSize: WidgetStatePropertyAll(Size(double.infinity, 48)),
         backgroundColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.disabled)) {
-            return Color(0xffE5E7EB);
+            return AppColors.disabled;
           }
           return AppColors.primary;
         }),
         foregroundColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.disabled)) {
-            return Color(0xff9CA3AF);
+            return AppColors.textSecondary;
           }
-          return Colors.white;
+          return AppColors.white;
         }),
         textStyle: WidgetStatePropertyAll(
           TextStyle(
