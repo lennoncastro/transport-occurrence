@@ -20,4 +20,6 @@ mixin AppColors {
   static const disabled = Color(0xffE5E7EB);
 
   static const shadow = Color(0x0D000000);
+
+  static const gray = Color(0xffF5F6FA);
 }
