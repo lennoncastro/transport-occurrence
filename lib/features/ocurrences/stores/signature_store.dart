@@ -1,4 +1,5 @@
 import 'package:mobx/mobx.dart';
+import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_store.dart';
 
 part 'signature_store.g.dart';
 
@@ -6,24 +7,23 @@ part 'signature_store.g.dart';
 class SignatureStore = _SignatureStoreBase with _$SignatureStore;
 
 abstract class _SignatureStoreBase with Store {
-  @observable
-  String responsible = '';
+  _SignatureStoreBase(this._ocurrenceStore);
 
-  @observable
-  String signature = '';
+  final OcurrenceStore _ocurrenceStore;
+
+  @computed
+  String get responsible => _ocurrenceStore.ocurrence.responsible;
+
+  @computed
+  String get signaturePath => _ocurrenceStore.ocurrence.signature;
 
   @computed
   bool get isButtonEnabled {
-    return responsible.isNotEmpty && signature.isNotEmpty;
+    return responsible.isNotEmpty && signaturePath.isNotEmpty;
   }
 
   @action
   void setResponsible(String responsible) {
-    this.responsible = responsible;
-  }
-
-  @action
-  void setSignature(String signature) {
-    this.signature = signature;
+    _ocurrenceStore.setResponsible(responsible);
   }
 }

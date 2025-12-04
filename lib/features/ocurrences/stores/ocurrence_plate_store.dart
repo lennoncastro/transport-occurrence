@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:mobx/mobx.dart';
+import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_store.dart';
 
 part 'ocurrence_plate_store.g.dart';
 
@@ -8,11 +9,17 @@ part 'ocurrence_plate_store.g.dart';
 class OcurrencePlateStore = _OcurrencePlateStoreBase with _$OcurrencePlateStore;
 
 abstract class _OcurrencePlateStoreBase with Store {
-  @observable
-  String plate = '';
+  _OcurrencePlateStoreBase(this._ocurrenceStore);
 
-  @observable
-  String photoPath = '';
+  final OcurrenceStore _ocurrenceStore;
+
+  @computed
+  String get plate => _ocurrenceStore.ocurrence.plate;
+
+  @computed
+  String get photoPath => _ocurrenceStore.ocurrence.photosPath.isNotEmpty
+      ? _ocurrenceStore.ocurrence.photosPath.first
+      : '';
 
   @computed
   bool get isValidPlate {
@@ -33,8 +40,12 @@ abstract class _OcurrencePlateStoreBase with Store {
   }
 
   @action
-  void setPlate(String plate) => this.plate = plate;
+  void setPlate(String plate) {
+    _ocurrenceStore.setPlate(plate);
+  }
 
   @action
-  void setPhotoPath(String photoPath) => this.photoPath = photoPath;
+  void setPhotoPath(String photoPath) {
+    _ocurrenceStore.setPhotoPath(photoPath);
+  }
 }

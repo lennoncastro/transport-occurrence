@@ -19,7 +19,7 @@ class SignatureViewModel {
     if (!_signatureStore.isButtonEnabled) return;
     _ocurrenceStore
       ..setResponsible(_signatureStore.responsible)
-      ..setSignature(_signatureStore.signature);
+      ..setSignaturePath(_signatureStore.signaturePath);
     _navigationService.goToOccurrenceSuccess();
   }
 

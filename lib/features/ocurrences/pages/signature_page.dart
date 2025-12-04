@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -26,6 +28,7 @@ class _SignaturePageState extends State<SignaturePage> {
   void initState() {
     super.initState();
     _responsibleController.addListener(() {
+      if (!mounted) return;
       _signatureStore.setResponsible(_responsibleController.text);
     });
   }
@@ -47,6 +50,7 @@ class _SignaturePageState extends State<SignaturePage> {
           spacing: 16,
           children: [
             AppTextFormField(
+              key: Key(labels.form.responsibleLabel.toLowerCase()),
               controller: _responsibleController,
               label: labels.form.responsibleLabel,
               hintText: labels.form.responsibleHintText,
@@ -59,12 +63,27 @@ class _SignaturePageState extends State<SignaturePage> {
               onTap: _viewModel.takeSignature,
               child: AbsorbPointer(
                 absorbing: true,
-                child: AppTextFormField(
-                  label: labels.form.signaturaLabel,
-                  hintText: labels.form.signaturaHintText,
-                  minLines: 4,
-                  maxLines: 4,
-                  readOnly: true,
+                child: Observer(
+                  builder: (_) => Stack(
+                    children: [
+                      if (_signatureStore.signaturePath.isNotEmpty)
+                        Positioned.fill(
+                          child: Image.file(
+                            File(_signatureStore.signaturePath),
+                          ),
+                        ),
+                      AppTextFormField(
+                        key: Key(labels.form.signaturaLabel.toLowerCase()),
+                        label: labels.form.signaturaLabel,
+                        hintText: _signatureStore.signaturePath.isEmpty
+                            ? labels.form.signaturaHintText
+                            : '',
+                        minLines: 4,
+                        maxLines: 4,
+                        readOnly: true,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

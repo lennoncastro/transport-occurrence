@@ -7,6 +7,7 @@ part 'ocurrence_store.g.dart';
 class OcurrenceStore = _OcurrenceStoreBase with _$OcurrenceStore;
 
 abstract class _OcurrenceStoreBase with Store {
+  @observable
   Ocurrence ocurrence = Ocurrence.empty();
 
   @action
@@ -16,9 +17,7 @@ abstract class _OcurrenceStoreBase with Store {
 
   @action
   void setPhotoPath(String photoPath) {
-    ocurrence = ocurrence.copyWith(
-      photosPath: [...ocurrence.photosPath, photoPath],
-    );
+    ocurrence = ocurrence.copyWith(photosPath: [photoPath]);
   }
 
   @action
@@ -27,7 +26,7 @@ abstract class _OcurrenceStoreBase with Store {
   }
 
   @action
-  void setSignature(String signature) {
-    ocurrence = ocurrence.copyWith(signature: signature);
+  void setSignaturePath(String signaturePath) {
+    ocurrence = ocurrence.copyWith(signature: signaturePath);
   }
 }
