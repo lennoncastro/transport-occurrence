@@ -1,10 +1,10 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:transport_occurrence/core/navigation/navigator_service.dart';
 import 'package:transport_occurrence/features/ocurrences/pages/manual_signature_page.dart';
-import 'package:transport_occurrence/features/ocurrences/pages/ocurrence_page.dart';
+import 'package:transport_occurrence/features/ocurrences/pages/ocurrence_plate_page.dart';
 import 'package:transport_occurrence/features/ocurrences/pages/signature_page.dart';
-import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_store.dart';
-import 'package:transport_occurrence/features/ocurrences/viewmodels/ocurrence_viewmodel.dart';
+import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_plate_store.dart';
+import 'package:transport_occurrence/features/ocurrences/viewmodels/ocurrence_plate_viewmodel.dart';
 
 mixin OcurrencesModuleRoutes {
   static final root = '/';
@@ -21,10 +21,10 @@ class OcurrencesModule extends Module {
 
   @override
   void binds(Injector i) {
-    i.addLazySingleton<OcurrenceStore>(() => OcurrenceStore());
-    i.add<OcurrenceViewModel>(
-      () => OcurrenceViewModel(
-        i.get<OcurrenceStore>(),
+    i.addLazySingleton<OcurrencePlateStore>(() => OcurrencePlateStore());
+    i.add<OcurrencePlateViewModel>(
+      () => OcurrencePlateViewModel(
+        i.get<OcurrencePlateStore>(),
         Modular.get<NavigationService>(),
       ),
     );
@@ -33,7 +33,10 @@ class OcurrencesModule extends Module {
 
   @override
   void routes(r) {
-    r.child(OcurrencesModuleRoutes.root, child: (context) => OcurrencePage());
+    r.child(
+      OcurrencesModuleRoutes.root,
+      child: (context) => OcurrencePlatePage(),
+    );
     r.child(
       OcurrencesModuleRoutes.signature,
       child: (context) => SignaturePage(),
@@ -46,7 +49,7 @@ class OcurrencesModule extends Module {
     );
     r.child(
       OcurrencesModuleRoutes.success,
-      child: (context) => OcurrencePage(),
+      child: (context) => OcurrencePlatePage(),
     );
   }
 }

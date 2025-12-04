@@ -6,23 +6,24 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:transport_occurrence/core/ds/ds.dart';
 import 'package:transport_occurrence/core/extensions/labels.dart';
 import 'package:transport_occurrence/features/ocurrences/components/ocurrence_photo_card.dart';
-import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_store.dart';
-import 'package:transport_occurrence/features/ocurrences/viewmodels/ocurrence_viewmodel.dart';
+import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_plate_store.dart';
+import 'package:transport_occurrence/features/ocurrences/viewmodels/ocurrence_plate_viewmodel.dart';
 import 'package:transport_occurrence/gen/assets.gen.dart';
 
-class OcurrencePage extends StatefulWidget {
-  const OcurrencePage({super.key});
+class OcurrencePlatePage extends StatefulWidget {
+  const OcurrencePlatePage({super.key});
 
   @override
-  State<OcurrencePage> createState() => _OcurrencePageState();
+  State<OcurrencePlatePage> createState() => _OcurrencePlatePageState();
 }
 
-class _OcurrencePageState extends State<OcurrencePage> {
+class _OcurrencePlatePageState extends State<OcurrencePlatePage> {
   final _plateController = TextEditingController();
 
-  final OcurrenceViewModel _viewModel = Modular.get<OcurrenceViewModel>();
+  final OcurrencePlateViewModel _viewModel =
+      Modular.get<OcurrencePlateViewModel>();
 
-  final OcurrenceStore _store = Modular.get<OcurrenceStore>();
+  final OcurrencePlateStore _store = Modular.get<OcurrencePlateStore>();
 
   final _plateMaskFormatter = MaskTextInputFormatter(
     mask: 'AAA-####',
@@ -33,9 +34,6 @@ class _OcurrencePageState extends State<OcurrencePage> {
   void initState() {
     super.initState();
     _plateController.addListener(() {
-      debugPrint(
-        'plate: ${_plateMaskFormatter.getUnmaskedText().toUpperCase()}',
-      );
       _store.setPlate(_plateMaskFormatter.getUnmaskedText().toUpperCase());
     });
   }
@@ -48,7 +46,7 @@ class _OcurrencePageState extends State<OcurrencePage> {
 
   @override
   Widget build(BuildContext context) {
-    final labels = context.labels.ocurrencePage;
+    final labels = context.labels.ocurrencePlatePage;
     return AppPage(
       title: labels.title,
       body: SingleChildScrollView(

@@ -3,7 +3,7 @@ app:
 checklistPage:
   title: Checklist
   ocurrence: Ocorrência
-ocurrencePage:
+ocurrencePlatePage:
   title: Ocorrência
   form:
     label: Placa Veículo

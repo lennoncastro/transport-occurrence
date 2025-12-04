@@ -1,10 +1,10 @@
 import 'package:transport_occurrence/core/navigation/navigator_service.dart';
-import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_store.dart';
+import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_plate_store.dart';
 
-class OcurrenceViewModel {
-  OcurrenceViewModel(this._store, this._navigationService);
+class OcurrencePlateViewModel {
+  OcurrencePlateViewModel(this._store, this._navigationService);
 
-  final OcurrenceStore _store;
+  final OcurrencePlateStore _store;
 
   final NavigationService _navigationService;
 

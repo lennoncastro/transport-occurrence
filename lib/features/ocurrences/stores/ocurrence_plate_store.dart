@@ -1,11 +1,11 @@
 import 'package:mobx/mobx.dart';
 
-part 'ocurrence_store.g.dart';
+part 'ocurrence_plate_store.g.dart';
 
 // ignore: library_private_types_in_public_api
-class OcurrenceStore = _OcurrenceStoreBase with _$OcurrenceStore;
+class OcurrencePlateStore = _OcurrencePlateStoreBase with _$OcurrencePlateStore;
 
-abstract class _OcurrenceStoreBase with Store {
+abstract class _OcurrencePlateStoreBase with Store {
   @observable
   String plate = '';
 
