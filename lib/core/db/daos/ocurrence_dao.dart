@@ -73,6 +73,25 @@ class OcurrenceDao {
     }
   }
 
+  Future<List<Ocurrence>> findProcessed() async {
+    try {
+      final results = await (_db.select(
+        _db.ocurrencesTable,
+      )..where((t) => t.isAlreadyProcessed.equals(true))).get();
+      return results.map((data) => data.toModel()).toList();
+    } on SqliteException catch (e) {
+      throw DatabaseException.operation(
+        message: 'Erro ao buscar ocorrências processadas: ${e.message}',
+        originalException: e,
+      );
+    } catch (e) {
+      throw DatabaseException.operation(
+        message: 'Erro inesperado ao buscar ocorrências processadas',
+        originalException: e,
+      );
+    }
+  }
+
   Future<bool> markAsProcessed(String id) async {
     try {
       final updated =

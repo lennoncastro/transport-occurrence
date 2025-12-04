@@ -9,6 +9,8 @@ abstract interface class OcurrenceRepository {
 
   Future<List<Ocurrence>> findNotProcessed();
 
+  Future<List<Ocurrence>> findProcessed();
+
   Future<Ocurrence> findById(String id);
 }
 
@@ -123,6 +125,39 @@ class OcurrenceRepositoryImpl implements OcurrenceRepository {
     } catch (e) {
       throw OcurrenceException.queryFailed(
         message: 'Erro inesperado ao buscar ocorrências não processadas',
+        originalException: e,
+      );
+    }
+  }
+
+  @override
+  Future<List<Ocurrence>> findProcessed() async {
+    try {
+      return await _ocurrenceDao.findProcessed();
+    } on DatabaseException catch (e) {
+      e.when(
+        notFound: (message, originalException) {
+          throw OcurrenceException.queryFailed(
+            message: message,
+            originalException: originalException,
+          );
+        },
+        constraint: (message, originalException) {
+          throw OcurrenceException.queryFailed(
+            message: message,
+            originalException: originalException,
+          );
+        },
+        operation: (message, originalException) {
+          throw OcurrenceException.queryFailed(
+            message: message,
+            originalException: originalException,
+          );
+        },
+      );
+    } catch (e) {
+      throw OcurrenceException.queryFailed(
+        message: 'Erro inesperado ao buscar ocorrências processadas',
         originalException: e,
       );
     }
