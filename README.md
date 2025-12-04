@@ -42,7 +42,6 @@ Por quê?
  Por quê?
  - Facilita a criação e recuperação de imagens de assinaturas no projeto.
 
-
  O que?
  - flutter modular
  Por quê?
@@ -60,3 +59,9 @@ Por quê?
  Por quê?
  - Permite acessar a camera do device através de uma api simples 
  - Requisito obrigatório
+
+ O que?
+ - workmanager
+ Por quê?
+ - Permite a execução de tarefas em background
+ - Cuida de boa parte da comunição com o nativo 
