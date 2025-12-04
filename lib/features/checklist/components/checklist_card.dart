@@ -24,13 +24,13 @@ class ChecklistCard extends StatelessWidget with AppTheme, AppDimensions {
       child: Container(
         height: AppDimensions.cardHeight80,
         decoration: BoxDecoration(
-          color: Color(0xffFFFFFF),
+          color: AppColors.white,
           borderRadius: BorderRadius.all(
             Radius.circular(AppDimensions.radius8),
           ),
           boxShadow: [
             BoxShadow(
-              color: const Color(0x0D000000),
+              color: AppColors.shadow,
               offset: const Offset(0, 2),
               blurRadius: AppDimensions.radius6,
               spreadRadius: 0,
@@ -50,7 +50,7 @@ class ChecklistCard extends StatelessWidget with AppTheme, AppDimensions {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: Color(0xffF6F6FB),
+                    color: AppColors.backgroundSecondary,
                     borderRadius: BorderRadius.all(
                       Radius.circular(AppDimensions.radius8),
                     ),
@@ -60,9 +60,9 @@ class ChecklistCard extends StatelessWidget with AppTheme, AppDimensions {
                 ),
                 Text(
                   label,
-                  style: Theme.of(
-                    context,
-                  ).textTheme.bodyMedium!.copyWith(color: Color(0xff515458)),
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    color: AppColors.textPrimary,
+                  ),
                 ),
               ],
             ),
