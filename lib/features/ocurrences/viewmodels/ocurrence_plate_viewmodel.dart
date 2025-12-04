@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:transport_occurrence/core/camera/camera_provider.dart';
 import 'package:transport_occurrence/core/navigation/navigator_service.dart';
 import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_plate_store.dart';
