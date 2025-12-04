@@ -5,6 +5,7 @@ import 'package:transport_occurrence/core/signature/signature_provider.dart';
 import 'package:transport_occurrence/features/ocurrences/pages/manual_signature_page.dart';
 import 'package:transport_occurrence/features/ocurrences/pages/ocurrence_plate_page.dart';
 import 'package:transport_occurrence/features/ocurrences/pages/signature_page.dart';
+import 'package:transport_occurrence/features/ocurrences/pages/success_page.dart';
 import 'package:transport_occurrence/features/ocurrences/stores/manual_signature_store.dart';
 import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_plate_store.dart';
 import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_store.dart';
@@ -78,9 +79,6 @@ class OcurrencesModule extends Module {
       OcurrencesModuleRoutes.manualSignature,
       child: (context) => const ManualSignaturePage(),
     );
-    r.child(
-      OcurrencesModuleRoutes.success,
-      child: (context) => OcurrencePlatePage(),
-    );
+    r.child(OcurrencesModuleRoutes.success, child: (context) => SuccessPage());
   }
 }
