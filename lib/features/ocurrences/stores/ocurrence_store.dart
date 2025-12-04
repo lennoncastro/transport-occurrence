@@ -20,4 +20,14 @@ abstract class _OcurrenceStoreBase with Store {
       photosPath: [...ocurrence.photosPath, photoPath],
     );
   }
+
+  @action
+  void setResponsible(String responsible) {
+    ocurrence = ocurrence.copyWith(responsible: responsible);
+  }
+
+  @action
+  void setSignature(String signature) {
+    ocurrence = ocurrence.copyWith(signature: signature);
+  }
 }
