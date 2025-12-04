@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:transport_occurrence/core/camera/camera_provider.dart';
 import 'package:transport_occurrence/core/navigation/navigator_service.dart';
 import 'package:transport_occurrence/features/ocurrences/pages/manual_signature_page.dart';
 import 'package:transport_occurrence/features/ocurrences/pages/ocurrence_plate_page.dart';
@@ -26,6 +27,7 @@ class OcurrencesModule extends Module {
       () => OcurrencePlateViewModel(
         i.get<OcurrencePlateStore>(),
         Modular.get<NavigationService>(),
+        Modular.get<CameraProvider>(),
       ),
     );
     super.binds(i);
