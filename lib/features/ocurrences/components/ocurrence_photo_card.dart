@@ -1,12 +1,16 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:transport_occurrence/core/ds/ds.dart';
 import 'package:transport_occurrence/gen/assets.gen.dart';
 
 class OcurrencePhotoCard extends StatelessWidget {
-  const OcurrencePhotoCard({this.onTap, super.key});
+  const OcurrencePhotoCard({this.onTap, this.photoPath, super.key});
 
   final VoidCallback? onTap;
+
+  final String? photoPath;
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +19,19 @@ class OcurrencePhotoCard extends StatelessWidget {
       child: Container(
         constraints: BoxConstraints(maxWidth: 96),
         decoration: BoxDecoration(
-          color: Color(0XFFF6F6FB),
+          image: photoPath != null
+              ? DecorationImage(
+                  image: FileImage(File(photoPath!)),
+                  fit: BoxFit.cover,
+                )
+              : null,
+          color: photoPath != null ? Colors.transparent : Color(0XFFF6F6FB),
           borderRadius: BorderRadius.circular(AppDimensions.radius8),
         ),
         padding: EdgeInsets.all(AppDimensions.spacing32),
-        child: SvgPicture.asset(Assets.icons.cameraAdd, width: 32, height: 32),
+        child: photoPath != null
+            ? const SizedBox.shrink()
+            : SvgPicture.asset(Assets.icons.cameraAdd, width: 32, height: 32),
       ),
     );
   }
