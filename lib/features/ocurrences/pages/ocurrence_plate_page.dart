@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -30,6 +31,13 @@ class _OcurrencePlatePageState extends State<OcurrencePlatePage> {
     filter: {'A': RegExp(r'[A-Za-z]'), '#': RegExp(r'[A-Za-z0-9]')},
   );
 
+  final _plateUppercaseFormatter = TextInputFormatter.withFunction(
+    (oldValue, newValue) => TextEditingValue(
+      text: newValue.text.toUpperCase(),
+      selection: newValue.selection,
+    ),
+  );
+
   @override
   void initState() {
     super.initState();
@@ -57,7 +65,7 @@ class _OcurrencePlatePageState extends State<OcurrencePlatePage> {
             AppTextFormField(
               label: labels.form.label,
               hintText: labels.form.hintText,
-              inputFormatters: [_plateMaskFormatter],
+              inputFormatters: [_plateUppercaseFormatter, _plateMaskFormatter],
               controller: _plateController,
             ),
             Container(
