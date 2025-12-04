@@ -111,6 +111,70 @@ O projeto segue uma arquitetura modular baseada em **MVVM** (Model-View-ViewMode
 - Cada módulo declara suas dependências via `binds()`
 - Dependências são injetadas automaticamente via construtor
 
+### Relação entre módulos
+A hierarquia de módulos segue uma estrutura em camadas, onde módulos superiores dependem de módulos inferiores:
+
+```
+AppModule (raiz)
+├── Importa: CoreModule
+└── Rotas:
+    ├── ChecklistModule (rota '/')
+    │   └── Rotas: OcurrencesModule (rota '/ocurrence')
+    └── OcurrencesModule (rota '/ocurrence')
+        └── Importa: DataModule
+
+CoreModule
+├── Importa: DbModule
+└── Binds:
+    ├── NavigationService
+    ├── CameraProvider
+    ├── SignatureProvider
+    └── HttpClient
+
+DbModule
+└── Binds:
+    ├── DatabaseConnection
+    └── OcurrenceDao
+
+DataModule
+├── Importa: CoreModule
+└── Binds:
+    ├── OcurrenceRepository (usa OcurrenceDao do CoreModule)
+    └── OcurrenceService (usa HttpClient do CoreModule)
+```
+
+#### Hierarquia de dependências
+1. **DbModule** (base)
+   - Módulo mais baixo na hierarquia
+   - Fornece acesso ao banco de dados local
+   - Não depende de outros módulos
+
+2. **CoreModule**
+   - Importa `DbModule` para ter acesso ao banco de dados
+   - Fornece serviços compartilhados (navegação, câmera, assinatura, rede)
+   - Base para todas as outras camadas
+
+3. **DataModule**
+   - Importa `CoreModule` para acessar `HttpClient` e `OcurrenceDao`
+   - Fornece repositórios e serviços de API
+   - Abstrai o acesso a dados (local e remoto)
+
+4. **Features Modules** (ChecklistModule, OcurrencesModule)
+   - Importam `DataModule` para acessar repositórios
+   - Podem acessar serviços do `CoreModule` diretamente
+   - Cada feature é independente e pode ser desenvolvida separadamente
+
+5. **AppModule** (raiz)
+   - Importa `CoreModule` para disponibilizar serviços base
+   - Configura as rotas principais da aplicação
+   - Ponto de entrada da arquitetura modular
+
+#### Fluxo de acesso
+- **Features** → acessam `DataModule` para obter dados
+- **DataModule** → acessa `CoreModule` para serviços de rede e banco
+- **CoreModule** → acessa `DbModule` para operações de banco de dados
+- Todos os módulos podem acessar serviços do `CoreModule` diretamente
+
 ## Decisões técnicas
 ---
 O que?
