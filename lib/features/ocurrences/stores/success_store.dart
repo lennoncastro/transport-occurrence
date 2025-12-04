@@ -13,7 +13,12 @@ abstract class _SuccessStoreBase with Store {
   final OcurrenceStore _ocurrenceStore;
 
   @computed
-  String get plate => _ocurrenceStore.ocurrence.plate;
+  String get plate {
+    final purePlate = _ocurrenceStore.ocurrence.plate;
+    final firstPart = purePlate.substring(0, 3);
+    final secondPart = purePlate.substring(3, 7);
+    return '$firstPart-$secondPart';
+  }
 
   @computed
   String get responsible => _ocurrenceStore.ocurrence.responsible;
