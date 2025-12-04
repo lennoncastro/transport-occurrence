@@ -13,11 +13,6 @@ void main() {
       "send-ocurrences",
       "send-ocurrences",
       frequency: Duration(minutes: 5),
-    )
-    ..registerPeriodicTask(
-      "delete-sent-ocurrences",
-      "delete-sent-ocurrences",
-      frequency: Duration(minutes: 5),
     );
   runApp(ModularApp(module: AppModule(), child: const App()));
 }
