@@ -69,7 +69,7 @@ class SuccessPage extends StatelessWidget {
             SizedBox(height: AppDimensions.spacing14),
             Container(
               decoration: BoxDecoration(
-                color: Color(0xffF6F6FB),
+                color: AppColors.backgroundSecondary,
                 borderRadius: BorderRadius.all(
                   Radius.circular(AppDimensions.radius4),
                 ),
