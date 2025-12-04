@@ -46,8 +46,14 @@ Future<void> _handleSendOcurrences(
     'callbackDispatcher: [$task] Occurrences found: ${ocurrences.length}',
   );
   for (final ocurrence in ocurrences) {
-    await ocurrenceService.sendOcurrence(ocurrence);
-    await ocurrenceRepository.markAsProcessed(ocurrence.id);
+    try {
+      await ocurrenceService.sendOcurrence(ocurrence);
+      await ocurrenceRepository.markAsProcessed(ocurrence.id);
+    } catch (e, stackTrace) {
+      debugPrint(
+        'callbackDispatcher: [$task] Error: $e\nStackTrace: $stackTrace',
+      );
+    }
   }
   debugPrint('callbackDispatcher: [$task] Processing completed');
 }
