@@ -22,6 +22,11 @@ jobs:
       - name: Flutter pub get
         run: flutter pub get
 
+      - name: Generate code
+        run: |
+          chmod +x scripts/code_generation.sh
+          ./scripts/code_generation.sh
+
       - name: Build APK (debug)
         run: flutter build apk --debug
 
