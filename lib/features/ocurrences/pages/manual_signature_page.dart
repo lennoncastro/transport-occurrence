@@ -1,27 +1,56 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:signature/signature.dart';
 import 'package:transport_occurrence/core/ds/ds.dart';
 import 'package:transport_occurrence/core/extensions/labels.dart';
+import 'package:transport_occurrence/features/ocurrences/stores/manual_signature_store.dart';
+import 'package:transport_occurrence/features/ocurrences/viewmodels/manual_signature_viewmodel.dart';
 import 'package:transport_occurrence/gen/assets.gen.dart';
 
 class ManualSignaturePage extends StatefulWidget {
   const ManualSignaturePage({super.key});
 
   @override
-  State<ManualSignaturePage> createState() => _SignaturePageState();
+  State<ManualSignaturePage> createState() => _ManualSignaturePageState();
 }
 
-class _SignaturePageState extends State<ManualSignaturePage> {
-  final SignatureController _controller = SignatureController(
+class _ManualSignaturePageState extends State<ManualSignaturePage> {
+  final ManualSignatureViewModel _viewModel =
+      Modular.get<ManualSignatureViewModel>();
+
+  final ManualSignatureStore _manualSignatureStore =
+      Modular.get<ManualSignatureStore>();
+
+  final SignatureController _signatureController = SignatureController(
     penStrokeWidth: 5,
     penColor: Colors.black,
     exportBackgroundColor: Colors.white,
   );
 
+  Timer? _signatureTimerDebouncer;
+
+  @override
+  void initState() {
+    super.initState();
+    _signatureController.addListener(() {
+      if (!mounted) return;
+      if (_signatureTimerDebouncer != null) {
+        _signatureTimerDebouncer?.cancel();
+      }
+      _signatureTimerDebouncer = Timer(const Duration(milliseconds: 1000), () {
+        _signatureController.toPngBytes().then(_viewModel.setSignature);
+      });
+    });
+  }
+
   @override
   void dispose() {
-    _controller.dispose();
+    _signatureController.dispose();
+    _signatureTimerDebouncer?.cancel();
     super.dispose();
   }
 
@@ -39,7 +68,7 @@ class _SignaturePageState extends State<ManualSignaturePage> {
               focusColor: Colors.transparent,
               highlightColor: Colors.transparent,
               splashColor: Colors.transparent,
-              onTap: _controller.clear,
+              onTap: _signatureController.clear,
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Row(
@@ -72,7 +101,7 @@ class _SignaturePageState extends State<ManualSignaturePage> {
                     ),
                   ),
                   child: Signature(
-                    controller: _controller,
+                    controller: _signatureController,
                     backgroundColor: Colors.transparent,
                   ),
                 ),
@@ -83,13 +112,18 @@ class _SignaturePageState extends State<ManualSignaturePage> {
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(AppDimensions.spacing24),
-        child: AppElevatedButton(
-          label: labels.buttonLabel,
-          icon: Padding(
-            padding: EdgeInsets.only(top: AppDimensions.spacing2),
-            child: SvgPicture.asset(Assets.icons.pen, width: 20, height: 20),
+        child: Observer(
+          builder: (_) => AppElevatedButton(
+            onPressed: _manualSignatureStore.isButtonEnabled
+                ? _viewModel.submit
+                : null,
+            label: labels.buttonLabel,
+            icon: Padding(
+              padding: EdgeInsets.only(top: AppDimensions.spacing2),
+              child: SvgPicture.asset(Assets.icons.pen, width: 20, height: 20),
+            ),
+            iconPosition: AppElevatedButtonIconPosition.start,
           ),
-          iconPosition: AppElevatedButtonIconPosition.start,
         ),
       ),
     );
