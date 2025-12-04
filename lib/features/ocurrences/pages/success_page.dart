@@ -101,11 +101,9 @@ class SuccessPage extends StatelessWidget {
                           top: AppDimensions.spacing2,
                           bottom: AppDimensions.spacing2,
                         ),
-                        child: Observer(
-                          builder: (_) => Text(
-                            labels.services,
-                            style: Theme.of(context).textTheme.labelLarge,
-                          ),
+                        child: Text(
+                          labels.ocurrence,
+                          style: Theme.of(context).textTheme.labelLarge,
                         ),
                       ),
                     ],

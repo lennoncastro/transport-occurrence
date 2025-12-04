@@ -25,6 +25,7 @@ successPage:
   label: Registrado
   description: Ocorrência registrada com sucesso.\nOs seguintes dados foram gravados
   services: Serviços
+  ocurrence: Ocorrência
   responsible: Responsável
   dateTime: Data e hora
   dateTimeAt: às
