@@ -60,20 +60,15 @@ class _OcurrencePlatePageState extends State<OcurrencePlatePage> {
         child: Column(
           spacing: AppDimensions.spacing16,
           children: [
-            Observer(
-              builder: (_) => AppTextFormField(
-                key: Key(labels.form.label.toLowerCase()),
-                label: labels.form.label,
-                hintText: labels.form.hintText,
-                inputFormatters: [
-                  _plateUppercaseFormatter,
-                  _plateMaskFormatter,
-                ],
-                controller: _plateController,
-                validator: (value) {
-                  return _store.isValidPlate ? null : labels.form.invalidInput;
-                },
-              ),
+            AppTextFormField(
+              key: Key(labels.form.label.toLowerCase()),
+              label: labels.form.label,
+              hintText: labels.form.hintText,
+              inputFormatters: [_plateUppercaseFormatter, _plateMaskFormatter],
+              controller: _plateController,
+              validator: (value) {
+                return _store.isValidPlate ? null : labels.form.invalidInput;
+              },
             ),
             Container(
               alignment: Alignment.centerLeft,
