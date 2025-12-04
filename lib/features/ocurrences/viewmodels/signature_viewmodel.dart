@@ -1,4 +1,5 @@
 import 'package:transport_occurrence/core/navigation/navigator_service.dart';
+import 'package:transport_occurrence/data/repositories/ocurrence_repository.dart';
 import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_store.dart';
 import 'package:transport_occurrence/features/ocurrences/stores/signature_store.dart';
 
@@ -7,6 +8,7 @@ class SignatureViewModel {
     this._ocurrenceStore,
     this._signatureStore,
     this._navigationService,
+    this._ocurrenceRepository,
   );
 
   final OcurrenceStore _ocurrenceStore;
@@ -15,12 +17,19 @@ class SignatureViewModel {
 
   final NavigationService _navigationService;
 
-  void submit() {
+  final OcurrenceRepository _ocurrenceRepository;
+
+  void submit() async {
     if (!_signatureStore.isButtonEnabled) return;
     _ocurrenceStore
       ..setResponsible(_signatureStore.responsible)
       ..setSignaturePath(_signatureStore.signaturePath);
-    _navigationService.goToOccurrenceSuccess();
+    try {
+      await _ocurrenceRepository.create(_ocurrenceStore.ocurrence);
+      _navigationService.goToOccurrenceSuccess();
+    } catch (_) {
+      // do nothing by now
+    }
   }
 
   void takeSignature() {
