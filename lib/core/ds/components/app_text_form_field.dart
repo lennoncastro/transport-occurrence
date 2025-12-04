@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:transport_occurrence/core/ds/colors.dart';
 import 'package:transport_occurrence/core/ds/dimensions.dart';
 
 class AppTextFormField extends StatelessWidget {
@@ -42,7 +43,7 @@ class AppTextFormField extends StatelessWidget {
             label,
             style: Theme.of(
               context,
-            ).textTheme.titleMedium?.copyWith(color: Color(0xff515458)),
+            ).textTheme.titleMedium?.copyWith(color: AppColors.textPrimary),
           ),
           TextFormField(
             controller: controller,
@@ -57,20 +58,14 @@ class AppTextFormField extends StatelessWidget {
               labelStyle: Theme.of(context).textTheme.titleMedium,
               hintStyle: Theme.of(
                 context,
-              ).textTheme.bodyMedium?.copyWith(color: Color(0xff9CA3AF)),
+              ).textTheme.bodyMedium?.copyWith(color: AppColors.textSecondary),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(AppDimensions.radius6),
-                borderSide: BorderSide(
-                  color: const Color(0xFFFEFEFE),
-                  width: 1,
-                ),
+                borderSide: BorderSide(color: AppColors.background, width: 1),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(AppDimensions.radius6),
-                borderSide: BorderSide(
-                  color: const Color(0xFFE0E6ED),
-                  width: 1,
-                ),
+                borderSide: BorderSide(color: AppColors.border, width: 1),
               ),
               hintText: hintText,
             ),
