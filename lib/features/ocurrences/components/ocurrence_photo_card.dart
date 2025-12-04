@@ -28,7 +28,7 @@ class OcurrencePhotoCard extends StatelessWidget {
               : null,
           color: photoPath != null && photoPath!.isNotEmpty
               ? Colors.transparent
-              : Color(0XFFF6F6FB),
+              : AppColors.backgroundSecondary,
           borderRadius: BorderRadius.circular(AppDimensions.radius8),
         ),
         padding: EdgeInsets.all(AppDimensions.spacing32),
