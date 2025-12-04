@@ -48,11 +48,18 @@ class _SignaturePageState extends State<SignaturePage> {
         child: Column(
           spacing: AppDimensions.spacing16,
           children: [
-            AppTextFormField(
-              key: Key(labels.form.responsibleLabel.toLowerCase()),
-              controller: _responsibleController,
-              label: labels.form.responsibleLabel,
-              hintText: labels.form.responsibleHintText,
+            Observer(
+              builder: (_) => AppTextFormField(
+                key: Key(labels.form.responsibleLabel.toLowerCase()),
+                controller: _responsibleController,
+                label: labels.form.responsibleLabel,
+                hintText: labels.form.responsibleHintText,
+                validator: (value) {
+                  return _signatureStore.isValidResponsible
+                      ? null
+                      : labels.form.responsibleInvalidInput;
+                },
+              ),
             ),
             InkWell(
               hoverColor: Colors.transparent,

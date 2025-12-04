@@ -15,7 +15,7 @@ signaturePage:
   form:
     responsibleLabel: Responsável
     responsibleHintText: Responsável
-    responsibleInvalidInput: Preencha uma placa válida
+    responsibleInvalidInput: Preencha um nome válido
     signaturaLabel: Assinatura
     signaturaHintText: Assinatura
     signaturaInvalidInput: Preencha uma assinatura

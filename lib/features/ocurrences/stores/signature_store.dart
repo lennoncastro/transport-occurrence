@@ -22,6 +22,13 @@ abstract class _SignatureStoreBase with Store {
     return responsible.isNotEmpty && signaturePath.isNotEmpty;
   }
 
+  @computed
+  bool get isValidResponsible {
+    if (responsible.isEmpty) return false;
+    if (responsible.length < 3 || responsible.length > 100) return false;
+    return true;
+  }
+
   @action
   void setResponsible(String responsible) {
     _ocurrenceStore.setResponsible(responsible);
