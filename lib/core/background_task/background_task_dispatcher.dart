@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:transport_occurrence/core/core_module.dart';
 import 'package:transport_occurrence/data/data.dart';
 import 'package:transport_occurrence/data/data_module.dart';
 import 'package:transport_occurrence/data/repositories/ocurrence_repository.dart';
@@ -9,9 +8,7 @@ import 'package:workmanager/workmanager.dart';
 @pragma('vm:entry-point')
 void callbackDispatcher() {
   debugPrint('callbackDispatcher: callbackDispatcher started');
-  Modular
-    ..init(DataModule())
-    ..init(CoreModule());
+  Modular.init(DataModule());
   final OcurrenceRepository ocurrenceRepository =
       Modular.get<OcurrenceRepository>();
   final OcurrenceService ocurrenceService = Modular.get<OcurrenceService>();
