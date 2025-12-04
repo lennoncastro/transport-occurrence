@@ -14,24 +14,27 @@ class ChecklistPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppPage(
-      title: context.labels.checklistPage.title,
-      body: ListView.separated(
-        itemCount: 1,
-        padding: EdgeInsets.all(AppDimensions.spacing24),
-        separatorBuilder: (context, index) =>
-            SizedBox(height: AppDimensions.spacing16),
-        itemBuilder: (context, index) {
-          return ChecklistCard(
-            onTap: _navigationService.goToOccurrences,
-            icon: SvgPicture.asset(
-              Assets.icons.packagePlus,
-              width: AppDimensions.icon32,
-              height: AppDimensions.icon32,
-            ),
-            label: context.labels.checklistPage.ocurrence,
-          );
-        },
+    return Theme(
+      data: AppTheme.theme.copyWith(scaffoldBackgroundColor: AppColors.gray),
+      child: AppPage(
+        title: context.labels.checklistPage.title,
+        body: ListView.separated(
+          itemCount: 1,
+          padding: EdgeInsets.all(AppDimensions.spacing24),
+          separatorBuilder: (context, index) =>
+              SizedBox(height: AppDimensions.spacing16),
+          itemBuilder: (context, index) {
+            return ChecklistCard(
+              onTap: _navigationService.goToOccurrences,
+              icon: SvgPicture.asset(
+                Assets.icons.packagePlus,
+                width: AppDimensions.icon32,
+                height: AppDimensions.icon32,
+              ),
+              label: context.labels.checklistPage.ocurrence,
+            );
+          },
+        ),
       ),
     );
   }
