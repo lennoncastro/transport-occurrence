@@ -60,7 +60,7 @@ class _ManualSignaturePageState extends State<ManualSignaturePage> {
     return AppPage(
       title: labels.title,
       body: Padding(
-        padding: EdgeInsets.all(24),
+        padding: EdgeInsets.all(AppDimensions.spacing24),
         child: Stack(
           children: [
             InkWell(
@@ -70,15 +70,15 @@ class _ManualSignaturePageState extends State<ManualSignaturePage> {
               splashColor: Colors.transparent,
               onTap: _signatureController.clear,
               child: Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(AppDimensions.spacing12),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
-                  spacing: 2,
+                  spacing: AppDimensions.spacing2,
                   children: [
                     SvgPicture.asset(
                       Assets.icons.erasersQuare,
-                      width: 24,
-                      height: 24,
+                      width: AppDimensions.icon24,
+                      height: AppDimensions.icon24,
                     ),
                     Text(
                       labels.clear,
@@ -95,9 +95,12 @@ class _ManualSignaturePageState extends State<ManualSignaturePage> {
                 alignment: Alignment.center,
                 child: Container(
                   height: 155,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     border: Border(
-                      bottom: BorderSide(color: Color(0xFF000000), width: 2),
+                      bottom: BorderSide(
+                        color: Color(0xFF000000),
+                        width: AppDimensions.spacing2,
+                      ),
                     ),
                   ),
                   child: Signature(
@@ -120,7 +123,11 @@ class _ManualSignaturePageState extends State<ManualSignaturePage> {
             label: labels.buttonLabel,
             icon: Padding(
               padding: EdgeInsets.only(top: AppDimensions.spacing2),
-              child: SvgPicture.asset(Assets.icons.pen, width: 20, height: 20),
+              child: SvgPicture.asset(
+                Assets.icons.pen,
+                width: AppDimensions.icon20,
+                height: AppDimensions.icon20,
+              ),
             ),
             iconPosition: AppElevatedButtonIconPosition.start,
           ),

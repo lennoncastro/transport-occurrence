@@ -47,7 +47,7 @@ class _SignaturePageState extends State<SignaturePage> {
       body: SingleChildScrollView(
         padding: EdgeInsets.all(AppDimensions.spacing24),
         child: Column(
-          spacing: 16,
+          spacing: AppDimensions.spacing16,
           children: [
             AppTextFormField(
               key: Key(labels.form.responsibleLabel.toLowerCase()),
@@ -102,8 +102,8 @@ class _SignaturePageState extends State<SignaturePage> {
               padding: EdgeInsets.only(top: AppDimensions.spacing2),
               child: SvgPicture.asset(
                 Assets.icons.checkCircle,
-                width: 20,
-                height: 20,
+                width: AppDimensions.icon20,
+                height: AppDimensions.icon20,
               ),
             ),
             iconPosition: AppElevatedButtonIconPosition.start,

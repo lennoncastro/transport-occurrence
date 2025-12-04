@@ -52,7 +52,7 @@ class _OcurrencePlatePageState extends State<OcurrencePlatePage> {
       body: SingleChildScrollView(
         padding: EdgeInsets.all(AppDimensions.spacing24),
         child: Column(
-          spacing: 16,
+          spacing: AppDimensions.spacing16,
           children: [
             AppTextFormField(
               label: labels.form.label,
@@ -84,8 +84,8 @@ class _OcurrencePlatePageState extends State<OcurrencePlatePage> {
                 _store.isButtonEnabled
                     ? Assets.icons.roundArrowRight
                     : Assets.icons.roundArrowRightDisabled,
-                width: 20,
-                height: 20,
+                width: AppDimensions.icon20,
+                height: AppDimensions.icon20,
               ),
             ),
           ),

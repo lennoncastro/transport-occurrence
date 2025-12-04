@@ -37,17 +37,17 @@ class SuccessPage extends StatelessWidget {
                 ),
                 child: SvgPicture.asset(
                   Assets.icons.taskDone,
-                  width: 64,
-                  height: 64,
+                  width: AppDimensions.icon64,
+                  height: AppDimensions.icon64,
                 ),
               ),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: AppDimensions.spacing16),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 4),
+              padding: EdgeInsets.symmetric(vertical: AppDimensions.spacing4),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                spacing: 4,
+                spacing: AppDimensions.spacing4,
                 children: [
                   Text(
                     labels.label,
@@ -66,13 +66,18 @@ class SuccessPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 14),
+            SizedBox(height: AppDimensions.spacing14),
             Container(
               decoration: BoxDecoration(
                 color: Color(0xffF6F6FB),
-                borderRadius: BorderRadius.all(Radius.circular(4)),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(AppDimensions.radius4),
+                ),
               ),
-              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+              padding: EdgeInsets.symmetric(
+                horizontal: AppDimensions.spacing32,
+                vertical: AppDimensions.spacing16,
+              ),
               child: Table(
                 columnWidths: const {
                   0: IntrinsicColumnWidth(),
@@ -82,17 +87,19 @@ class SuccessPage extends StatelessWidget {
                   TableRow(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 2),
+                        padding: EdgeInsets.symmetric(
+                          vertical: AppDimensions.spacing2,
+                        ),
                         child: Text(
                           '${labels.services}:',
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
-                          left: 4,
-                          top: 2,
-                          bottom: 2,
+                        padding: EdgeInsets.only(
+                          left: AppDimensions.spacing4,
+                          top: AppDimensions.spacing2,
+                          bottom: AppDimensions.spacing2,
                         ),
                         child: Observer(
                           builder: (_) => Text(
@@ -106,17 +113,19 @@ class SuccessPage extends StatelessWidget {
                   TableRow(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 2),
+                        padding: EdgeInsets.symmetric(
+                          vertical: AppDimensions.spacing2,
+                        ),
                         child: Text(
                           '${labels.responsible}:',
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
-                          left: 4,
-                          top: 2,
-                          bottom: 2,
+                        padding: EdgeInsets.only(
+                          left: AppDimensions.spacing4,
+                          top: AppDimensions.spacing2,
+                          bottom: AppDimensions.spacing2,
                         ),
                         child: Observer(
                           builder: (_) => Text(
@@ -130,17 +139,19 @@ class SuccessPage extends StatelessWidget {
                   TableRow(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 2),
+                        padding: EdgeInsets.symmetric(
+                          vertical: AppDimensions.spacing2,
+                        ),
                         child: Text(
                           '${labels.dateTime}:',
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
-                          left: 4,
-                          top: 2,
-                          bottom: 2,
+                        padding: EdgeInsets.only(
+                          left: AppDimensions.spacing4,
+                          top: AppDimensions.spacing2,
+                          bottom: AppDimensions.spacing2,
                         ),
                         child: Observer(
                           builder: (_) => RichText(
@@ -167,17 +178,19 @@ class SuccessPage extends StatelessWidget {
                   TableRow(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 2),
+                        padding: EdgeInsets.symmetric(
+                          vertical: AppDimensions.spacing2,
+                        ),
                         child: Text(
                           '${labels.vehicle}:',
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
-                          left: 4,
-                          top: 2,
-                          bottom: 2,
+                        padding: EdgeInsets.only(
+                          left: AppDimensions.spacing4,
+                          top: AppDimensions.spacing2,
+                          bottom: AppDimensions.spacing2,
                         ),
                         child: Observer(
                           builder: (_) => Text(

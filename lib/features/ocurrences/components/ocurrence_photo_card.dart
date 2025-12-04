@@ -17,8 +17,8 @@ class OcurrencePhotoCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 96,
-        height: 96,
+        width: AppDimensions.photo96,
+        height: AppDimensions.photo96,
         decoration: BoxDecoration(
           image: photoPath != null && photoPath!.isNotEmpty
               ? DecorationImage(
@@ -34,7 +34,11 @@ class OcurrencePhotoCard extends StatelessWidget {
         padding: EdgeInsets.all(AppDimensions.spacing32),
         child: photoPath != null && photoPath!.isNotEmpty
             ? const SizedBox.shrink()
-            : SvgPicture.asset(Assets.icons.cameraAdd, width: 32, height: 32),
+            : SvgPicture.asset(
+                Assets.icons.cameraAdd,
+                width: AppDimensions.icon32,
+                height: AppDimensions.icon32,
+              ),
       ),
     );
   }

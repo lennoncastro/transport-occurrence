@@ -22,7 +22,7 @@ class ChecklistCard extends StatelessWidget with AppTheme, AppDimensions {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 80,
+        height: AppDimensions.cardHeight80,
         decoration: BoxDecoration(
           color: Color(0xffFFFFFF),
           borderRadius: BorderRadius.all(
@@ -69,7 +69,7 @@ class ChecklistCard extends StatelessWidget with AppTheme, AppDimensions {
             Container(
               width: AppDimensions.icon24,
               height: AppDimensions.icon24,
-              padding: EdgeInsets.all(3),
+              padding: EdgeInsets.all(AppDimensions.spacing3),
               child: SvgPicture.asset(
                 Assets.icons.startLarge,
                 width: 6,
