@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:mobx/mobx.dart';
 
 part 'ocurrence_plate_store.g.dart';
@@ -22,12 +24,12 @@ abstract class _OcurrencePlateStoreBase with Store {
 
   @computed
   bool get isValidPhotoPath {
-    return photoPath.isNotEmpty;
+    return photoPath.isNotEmpty && File(photoPath).existsSync();
   }
 
   @computed
   bool get isButtonEnabled {
-    return isValidPlate;
+    return isValidPlate && isValidPhotoPath;
   }
 
   @action

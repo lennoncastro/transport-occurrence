@@ -60,17 +60,22 @@ class _OcurrencePlatePageState extends State<OcurrencePlatePage> {
               inputFormatters: [_plateMaskFormatter],
               controller: _plateController,
             ),
-            Container(
-              constraints: BoxConstraints(maxHeight: 96),
-              child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 96,
-                  mainAxisExtent: 96,
+            Observer(
+              builder: (_) => Container(
+                constraints: BoxConstraints(maxHeight: 96),
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 96,
+                    mainAxisExtent: 96,
+                  ),
+                  itemCount: 1,
+                  itemBuilder: (context, index) {
+                    return OcurrencePhotoCard(
+                      onTap: _viewModel.takePhoto,
+                      photoPath: _store.photoPath,
+                    );
+                  },
                 ),
-                itemCount: 1,
-                itemBuilder: (context, index) {
-                  return OcurrencePhotoCard(onTap: _viewModel.takePhoto);
-                },
               ),
             ),
           ],
