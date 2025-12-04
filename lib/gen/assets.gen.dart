@@ -36,6 +36,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/round_arrow_right.svg
   String get roundArrowRight => 'assets/icons/round_arrow_right.svg';
 
+  /// File path: assets/icons/round_arrow_right_disabled.svg
+  String get roundArrowRightDisabled =>
+      'assets/icons/round_arrow_right_disabled.svg';
+
   /// File path: assets/icons/start_large.svg
   String get startLarge => 'assets/icons/start_large.svg';
 
@@ -52,6 +56,7 @@ class $AssetsIconsGen {
     pen,
     roundArrowLeft,
     roundArrowRight,
+    roundArrowRightDisabled,
     startLarge,
     taskDone,
   ];

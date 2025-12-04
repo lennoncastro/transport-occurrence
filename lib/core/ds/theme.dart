@@ -68,8 +68,18 @@ mixin AppTheme {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         minimumSize: WidgetStatePropertyAll(Size(double.infinity, 48)),
-        backgroundColor: WidgetStatePropertyAll(AppColors.primary),
-        foregroundColor: WidgetStatePropertyAll(Colors.white),
+        backgroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.disabled)) {
+            return Color(0xffE5E7EB);
+          }
+          return AppColors.primary;
+        }),
+        foregroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.disabled)) {
+            return Color(0xff9CA3AF);
+          }
+          return Colors.white;
+        }),
         textStyle: WidgetStatePropertyAll(
           TextStyle(
             fontFamily: fontFamily,
