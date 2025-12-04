@@ -65,3 +65,14 @@ Por quê?
  Por quê?
  - Permite a execução de tarefas em background
  - Cuida de boa parte da comunição com o nativo 
+
+ O que?
+ - mocktail
+ Por quê?
+ - Permite a criação de mocks que poderão ser usados durante os testes
+
+ O que?
+ - integration test
+ Por quê?
+ - Viabiliza a criação de testes de integração
+
