@@ -1,5 +1,5 @@
 import 'package:mobx/mobx.dart';
-import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_store.dart';
+import 'package:transport_occurrence/features/ocurrences/ocurrences.dart';
 
 part 'manual_signature_store.g.dart';
 

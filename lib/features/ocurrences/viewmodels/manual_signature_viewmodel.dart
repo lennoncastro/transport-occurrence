@@ -1,8 +1,7 @@
 import 'package:flutter/services.dart';
-import 'package:transport_occurrence/core/navigation/navigator_service.dart';
-import 'package:transport_occurrence/core/signature/signature_provider.dart';
-import 'package:transport_occurrence/features/ocurrences/stores/manual_signature_store.dart';
-import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_store.dart';
+import 'package:transport_occurrence/core/navigation/navigation.dart';
+import 'package:transport_occurrence/core/signature/signature.dart';
+import 'package:transport_occurrence/features/ocurrences/ocurrences.dart';
 
 class ManualSignatureViewModel {
   ManualSignatureViewModel(

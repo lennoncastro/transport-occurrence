@@ -5,10 +5,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:transport_occurrence/core/ds/ds.dart';
-import 'package:transport_occurrence/core/extensions/labels.dart';
-import 'package:transport_occurrence/features/ocurrences/components/ocurrence_photo_card.dart';
-import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_plate_store.dart';
-import 'package:transport_occurrence/features/ocurrences/viewmodels/ocurrence_plate_viewmodel.dart';
+import 'package:transport_occurrence/core/extensions/extensions.dart';
+import 'package:transport_occurrence/features/ocurrences/ocurrences.dart';
 import 'package:transport_occurrence/gen/assets.gen.dart';
 
 class OcurrencePlatePage extends StatefulWidget {

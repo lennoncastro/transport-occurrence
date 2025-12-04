@@ -6,9 +6,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:signature/signature.dart';
 import 'package:transport_occurrence/core/ds/ds.dart';
-import 'package:transport_occurrence/core/extensions/labels.dart';
-import 'package:transport_occurrence/features/ocurrences/stores/manual_signature_store.dart';
-import 'package:transport_occurrence/features/ocurrences/viewmodels/manual_signature_viewmodel.dart';
+import 'package:transport_occurrence/core/extensions/extensions.dart';
+import 'package:transport_occurrence/features/ocurrences/ocurrences.dart';
 import 'package:transport_occurrence/gen/assets.gen.dart';
 
 class ManualSignaturePage extends StatefulWidget {

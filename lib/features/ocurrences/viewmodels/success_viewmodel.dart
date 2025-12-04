@@ -1,4 +1,4 @@
-import 'package:transport_occurrence/core/navigation/navigator_service.dart';
+import 'package:transport_occurrence/core/navigation/navigation.dart';
 
 class SuccessViewModel {
   SuccessViewModel(this._navigationService);

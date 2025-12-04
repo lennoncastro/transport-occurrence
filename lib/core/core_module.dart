@@ -1,9 +1,9 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:transport_occurrence/core/camera/camera_provider.dart';
+import 'package:transport_occurrence/core/camera/camera.dart';
 import 'package:transport_occurrence/core/db/db_module.dart';
-import 'package:transport_occurrence/core/navigation/navigator_service.dart';
+import 'package:transport_occurrence/core/navigation/navigation.dart';
 import 'package:transport_occurrence/core/network/network.dart';
-import 'package:transport_occurrence/core/signature/signature_provider.dart';
+import 'package:transport_occurrence/core/signature/signature.dart';
 
 class CoreModule extends Module {
   @override

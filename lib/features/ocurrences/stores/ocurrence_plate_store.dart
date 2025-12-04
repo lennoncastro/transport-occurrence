@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:mobx/mobx.dart';
-import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_store.dart';
+import 'package:transport_occurrence/features/ocurrences/ocurrences.dart';
 
 part 'ocurrence_plate_store.g.dart';
 

@@ -1,7 +1,6 @@
-import 'package:transport_occurrence/core/navigation/navigator_service.dart';
+import 'package:transport_occurrence/core/navigation/navigation.dart';
 import 'package:transport_occurrence/data/repositories/ocurrence_repository.dart';
-import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_store.dart';
-import 'package:transport_occurrence/features/ocurrences/stores/signature_store.dart';
+import 'package:transport_occurrence/features/ocurrences/ocurrences.dart';
 
 class SignatureViewModel {
   SignatureViewModel(

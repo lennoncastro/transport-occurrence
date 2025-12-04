@@ -1,22 +1,10 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:transport_occurrence/core/camera/camera_provider.dart';
-import 'package:transport_occurrence/core/navigation/navigator_service.dart';
-import 'package:transport_occurrence/core/signature/signature_provider.dart';
+import 'package:transport_occurrence/core/camera/camera.dart';
+import 'package:transport_occurrence/core/navigation/navigation.dart';
+import 'package:transport_occurrence/core/signature/signature.dart';
 import 'package:transport_occurrence/data/data_module.dart';
 import 'package:transport_occurrence/data/repositories/ocurrence_repository.dart';
-import 'package:transport_occurrence/features/ocurrences/pages/manual_signature_page.dart';
-import 'package:transport_occurrence/features/ocurrences/pages/ocurrence_plate_page.dart';
-import 'package:transport_occurrence/features/ocurrences/pages/signature_page.dart';
-import 'package:transport_occurrence/features/ocurrences/pages/success_page.dart';
-import 'package:transport_occurrence/features/ocurrences/stores/manual_signature_store.dart';
-import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_plate_store.dart';
-import 'package:transport_occurrence/features/ocurrences/stores/ocurrence_store.dart';
-import 'package:transport_occurrence/features/ocurrences/stores/signature_store.dart';
-import 'package:transport_occurrence/features/ocurrences/stores/success_store.dart';
-import 'package:transport_occurrence/features/ocurrences/viewmodels/manual_signature_viewmodel.dart';
-import 'package:transport_occurrence/features/ocurrences/viewmodels/ocurrence_plate_viewmodel.dart';
-import 'package:transport_occurrence/features/ocurrences/viewmodels/signature_viewmodel.dart';
-import 'package:transport_occurrence/features/ocurrences/viewmodels/success_viewmodel.dart';
+import 'package:transport_occurrence/features/ocurrences/ocurrences.dart';
 
 mixin OcurrencesModuleRoutes {
   static final root = '/';

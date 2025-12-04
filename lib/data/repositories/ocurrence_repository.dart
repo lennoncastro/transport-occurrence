@@ -1,5 +1,4 @@
 import 'package:transport_occurrence/core/db/db.dart';
-import 'package:transport_occurrence/core/db/exceptions/database_exception.dart';
 import 'package:transport_occurrence/data/data.dart';
 
 abstract interface class OcurrenceRepository {

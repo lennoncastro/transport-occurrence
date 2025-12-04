@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:transport_occurrence/core/ds/ds.dart';
-import 'package:transport_occurrence/core/extensions/labels.dart';
+import 'package:transport_occurrence/core/extensions/extensions.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
